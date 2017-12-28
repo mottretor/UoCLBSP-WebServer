@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <title>check Location</title>
+        <title>UoC Maps</title>
         <style>
             /* Always set the map height explicitly to define the size of the div
              * element that contains the map. */
