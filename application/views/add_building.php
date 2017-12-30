@@ -4,15 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <html>
 <head>
-
 </head>
 
 <body>
-<div style="width: 100%; height: 10%; float: top; background-color: black">
-    <p style="color: white; font-size: 30px"> UoC Location Based Services Platform</p>
-</div>
-<div style="width: 100%; height: 90%; float: bottom">
-    <div style="width: 25%; float: left">
+<div>
+    <div>
         <div>
             </br>
             <?php echo form_open('manage_building/add'); ?>
