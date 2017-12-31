@@ -1,3 +1,7 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+
 <html>
 <head>
     <title>Test 3</title>
@@ -216,25 +220,22 @@
             width: 100%;
         }
 
-    </style><script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        (function ($) {
-            $(function () { // DOM Ready
+    </style>
 
-                // Toggle navigation
-                $('#nav-toggle').click(function () {
-                    this.classList.toggle("active");
-                    // If sidebar is visible:
-                    if ($('body').hasClass('show-nav')) {
-                        // Hide sidebar
-                        $('body').removeClass('show-nav');
-                    } else { // If sidebar is hidden:
-                        $('body').addClass('show-nav');
-                        // Display sidebar
-                    }
-                });
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>/assets/js/admin_panel.js"></script>
+    <script>
+        // $(document).ready(function(){
+        //     $("#building").click(function(){
+        //         $("#cont").load("admin_home.php");
+        //     });
+        // });
+        $(function () {
+            $("#building").on("click", function () {
+                $("#cont").load("admin_home.php");
             });
-        })(jQuery);
+        });
     </script>
 </head>
 <body>
@@ -246,7 +247,7 @@
         <ul>
             <li><a href="#nowhere">Geofencing</a></li>
             <li><a href="#nowhere">Paths</a></li>
-            <li><a href="#nowhere">Buildings</a></li>
+            <li><a href="#" id="building">Buildings</a></li>
             <li><a href="#nowhere">Rooms</a></li>
             <li><a href="#nowhere">People</a></li>
         </ul>
@@ -266,3 +267,30 @@
             <h1>UoC Location Based Services Platform <span>Customized!</span></h1>
         </div>
     </header>
+    <div id="cont">
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                var uluru = {lat: 6.902215976621638,  lng: 79.86069999999995};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 19,
+                    center: uluru
+                });
+                var ucsc = {lat: 6.902215976621638, lng: 79.86069999999995};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 16,
+                    center: ucsc,
+                    mapTypeId: 'roadmap'
+                });
+                var marker = new google.maps.Marker({
+                    position: ucsc,
+                    map: map
+                });
+            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuVuyPajdEVimNlE-ejFP3_ca3dRNHLT4&callback=initMap"
+                async defer></script>
+    </div>
+</main>
+</body>
+</html>

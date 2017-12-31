@@ -124,9 +124,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </script>
                 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZXHp9g0R5pEPgs2AlSUQBBBv0xe8vIhY&libraries=places&callback=initMap"
                         async defer></script>
-                <!--                        <script async defer-->
-                <!--                                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZXHp9g0R5pEPgs2AlSUQBBBv0xe8vIhY&callback=myMap">-->
-                <!--                        </script>-->
             </head>
             <body>
             <style>
