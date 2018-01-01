@@ -212,9 +212,9 @@
             /*text-decoration: underline;*/
         }
         #map {
-            height: 600px;
-            width: 100%;
-        }
+             height: 600px;
+             width: 100%;
+         }
 
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -243,7 +243,7 @@
 
             trigger.on('click', function () {
                 var $this = $(this),
-                    target = $this.data('target');
+                target = $this.data('target');
                 console.log(target);
 
                 contain.load(target + '.php');
