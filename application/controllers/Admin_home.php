@@ -8,17 +8,16 @@
 
 class Admin_home extends CI_Controller
 {
-    public function home()
+    public function index()
     {
         $this->load->view('admin_home');
     }
 
-//    function addBuilding()
-//    {
-//
-//        $data['result'] = ''; //you can use this if you need to pass some data to the view
-//
-//
-//   print $this->load->view('add_building', $data, true);//This will load your view page to the div element
+    public function buildings()
+    {
+        echo 'Um working';
+        $this->load->view('buildings');
+    }
+
 
 }

@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Test 3</title>
+    <title>Admin Home</title>
     <style>
         html,
         body {
@@ -280,7 +280,7 @@
 <main>
     <header>
         <div class="container">
-            <h1>UoC Location Based Services Platform <span>Customized!</span></h1>
+            <h1>UoC Location Based Services Platform <span>C!</span></h1>
         </div>
     </header>
     <div id="cont">

@@ -10,7 +10,7 @@ class Admin extends CI_Controller
 {
     public function add(){
         $this->load->view('include/header');
-        $this->load->view('building/add');
+        $this->load->view('buildings/add');
 
     }
 }
