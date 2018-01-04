@@ -8,8 +8,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta charset="utf-8">
         <title>UoC Maps</title>
         <style>
-            /* Always set the map height explicitly to define the size of the div
-             * element that contains the map. */
             #map {
                 height: 100%;
             }
@@ -105,9 +103,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 requestMap.open(method, urlPoly, shouldBeAsync);
                 requestMap.send(mapData);
-
-
-
 
             }
             function loadmap() {

@@ -224,6 +224,8 @@
 
                 // Toggle navigation
                 $('#nav-toggle').click(function () {
+                    // console.log( $('#nav-toggle').classList);
+                    // console.log(this);
                     this.classList.toggle("active");
                     // If sidebar is visible:
                     if ($('body').hasClass('show-nav')) {
@@ -243,12 +245,38 @@
 
             trigger.on('click', function () {
                 var $this = $(this),
-                    target = $this.data('target');
-                console.log(target);
+                    target = $this.attr('data-target');
+                console.log(target+'.php');
 
-                contain.load(target + '.php');
+                $.ajax({
+                    url: '<?php echo base_url(); ?>' + 'index.php/Manage_building/add_building',
+                    method: 'GET',
+                    success: function (data) {
+                        contain.html(data);
 
-                return false;
+
+                        // Toggle navigation
+                        // $('#nav-toggle').click(function () {
+                        // console.log( $('#nav-toggle').classList);
+                        // $('#nav-toggle').classList.toggle("active");
+                        document.getElementById('nav-toggle').classList.toggle("active");
+                            // If sidebar is visible:
+                            if ($('body').hasClass('show-nav')) {
+                                // Hide sidebar
+                                $('body').removeClass('show-nav');
+                            } else { // If sidebar is hidden:
+                                $('body').addClass('show-nav');
+                                // Display sidebar
+                            }
+
+                        return false;
+                        // });
+                    }
+                });
+
+               //contain.load('<?php //echo base_url(); ?>//'+ 'index.php/Manage_building/add_building');
+
+                // return false;
 
             });
         });
@@ -263,7 +291,7 @@
         <ul>
             <li><a href="#" data-target="geofencing">Geofencing</a></li>
             <li><a href="#" data-target="paths">Paths</a></li>
-            <li><a href="#" data-target="buildings">Buildings</a></li>
+            <li><a href="#" data-target="add_building">Buildings</a></li>
             <li><a href="#" data-target="rooms">Rooms</a></li>
             <li><a href="#" data-target="people">People</a></li>
         </ul>
