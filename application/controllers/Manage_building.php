@@ -16,7 +16,7 @@ class Manage_building extends CI_Controller{
     public function add_building(){
         $this->load->view('buildings/add');
 
-//        $this->load->model('manage_building_model');
+        $this->load->model('manage_building_model');
 //        $this->manage_building_model->add_building();
     }
 

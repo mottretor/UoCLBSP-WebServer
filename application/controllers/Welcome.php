@@ -7,14 +7,14 @@ class Welcome extends CI_Controller {
 //		$this->load->view('add_roads');
 //	}
 //
-//    public function index()
-//    {
-//        $this->load->view('add_polygon');
-//    }
-//
     public function index()
     {
-        $this->load->view('add_building');
+        $this->load->view('add_polygon');
     }
+//
+//    public function index()
+//    {
+//        $this->load->view('add_building');
+//    }
 
 }

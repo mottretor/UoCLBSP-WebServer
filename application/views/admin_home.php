@@ -246,7 +246,7 @@
             trigger.on('click', function () {
                 var $this = $(this),
                     target = $this.attr('data-target');
-                console.log(target+'.php');
+                // console.log(target+'.php');
 
                 $.ajax({
                     url: '<?php echo base_url(); ?>' + 'index.php/Manage_building/add_building',

@@ -26,6 +26,7 @@ class Manage_building_model extends CI_Model
             'description' => $this->input->post('description'),
             'latitudes' => $this->input->post('latitudes'),
             'longitudes' => $this->input->post('longitudes'),
+            'graph_id' => $this->input->post('graph_id')
         );
 
         return $this->db->insert('building', $data);
