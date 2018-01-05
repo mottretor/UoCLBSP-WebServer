@@ -5,196 +5,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-
-        background-color: #2196F3;
-        color: white;
-        }
-
-        .topnav .search-container {
-            float: right;
-        }
-
-        .topnav input[type=text] {
-            padding: 6px;
-            margin-top: 8px;
-            font-size: 17px;
-            border: none;
-        }
-
-        .topnav .search-container button {
-            float: right;
-            padding: 6px 10px;
-            margin-top: 8px;
-            margin-right: 16px;
-            background: #ddd;
-            font-size: 17px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .topnav .search-container button:hover {
-            background: #ccc;
-        }
-
-        @media screen and (max-width: 600px) {
-            .topnav .search-container {
-                float: none;
-            }
-            .topnav a, .topnav input[type=text], .topnav .search-container button {
-                float: none;
-                display: block;
-                text-align: left;
-                width: 100%;
-                margin: 0;
-                padding: 14px;
-            }
-            .topnav input[type=text] {
-                border: 1px solid #ccc;
-            }
-        }
-        *, *:before, *:after {
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-family: Helvetica, Arial, sans-serif;
-            font-size: 100%;
-            background: #333;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        #page-wrapper {
-            /*width: 640px;*/
-            height: 100%;
-            background: #FFFFFF;
-            padding: 1em;
-            margin: 1em auto;
-            border-top: 5px solid #69c773;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        }
-
-        h1 {
-            margin-top: 0;
-        }
-
-        label {
-            display: block;
-            margin-top: 2em;
-            margin-bottom: 0.5em;
-            color: #999999;
-        }
-
-        input {
-            width: 100%;
-            padding: 0.5em 0.5em;
-            font-size: 1.2em;
-            border-radius: 3px;
-            border: 1px solid #D9D9D9;
-        }
-
-        button {
-            display: inline-block;
-            border-radius: 3px;
-            border: none;
-            font-size: 0.9rem;
-            padding: 0.5rem 0.8em;
-            background: #69c773;
-            border-bottom: 1px solid #498b50;
-            color: white;
-            -webkit-font-smoothing: antialiased;
-            font-weight: bold;
-            margin: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        button:hover, button:focus {
-            opacity: 0.75;
-            cursor: pointer;
-        }
-
-        button:active {
-            opacity: 1;
-            box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1) inset;
-        }
-
-    </style>
-    <!--    <link rel="stylesheet" type="text/css" href="assets/css/form.css">-->
+    <script type="text/javascript">
+        $document.ready(function () {
+            $('#buildingName').autocomplete({
+               source: "<?php echo site_url('index.php/Manage_building/search_building/?');?>"
+            });
+        });
+    </script>
 </head>
 
 <body>
 <div style="width: 100%; height: 90%; float: bottom">
-<!--    <script>-->
-<!--        // Get the <datalist> and <input> elements.-->
-<!--        var dataList = document.getElementById('json-datalist');-->
-<!--        var input = document.getElementById('ajax');-->
-<!---->
-<!--        // Create a new XMLHttpRequest.-->
-<!--        var request = new XMLHttpRequest();-->
-<!---->
-<!--        // Handle state changes for the request.-->
-<!--        request.onreadystatechange = function(response) {-->
-<!--            if (request.readyState === 4) {-->
-<!--                if (request.status === 200) {-->
-<!--                    // Parse the JSON-->
-<!--                    var jsonOptions = JSON.parse(request.responseText);-->
-<!---->
-<!--                    // Loop over the JSON array.-->
-<!--                    jsonOptions.forEach(function(item) {-->
-<!--                        // Create a new <option> element.-->
-<!--                        var option = document.createElement('option');-->
-<!--                        // Set the value using the item in the JSON array.-->
-<!--                        option.value = item;-->
-<!--                        // Add the <option> element to the <datalist>.-->
-<!--                        dataList.appendChild(option);-->
-<!--                    });-->
-<!---->
-<!--                    // Update the placeholder text.-->
-<!--                    input.placeholder = "e.g. datalist";-->
-<!--                } else {-->
-<!--                    // An error occured :(-->
-<!--                    input.placeholder = "Couldn't load datalist options :(";-->
-<!--                }-->
-<!--            }-->
-<!--        };-->
-<!---->
-<!--        // Update the placeholder text.-->
-<!--        input.placeholder = "Loading options...";-->
-<!---->
-<!--        // Set up and make the request.-->
-<!--        request.open('GET', 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/4621/html-elements.json', true);-->
-<!--        request.send();-->
-<!---->
-<!--    </script>-->
+
     <div style="width: 25%;  height:100%; float: left; background-color: #343434">
-        <div id="page-wrapper">
-            <label for="default">Search the building by name</label>
-            <input type="text" id="default" list="languages" placeholder="">
-
-<!--            <datalist id="languages">-->
-<!--                <option value="HTML">-->
-<!--                <option value="CSS">-->
-<!--                <option value="JavaScript">-->
-<!--                <option value="Java">-->
-<!--                <option value="Ruby">-->
-<!--                <option value="PHP">-->
-<!--                <option value="Go">-->
-<!--                <option value="Erlang">-->
-<!--                <option value="Python">-->
-<!--                <option value="C">-->
-<!--                <option value="C#">-->
-<!--                <option value="C++">-->
-<!--            </datalist>-->
-
-
-<!--            <label for="ajax">Pick an HTML Element (options loaded using AJAX)</label>-->
-<!--            <input type="text" id="ajax" list="json-datalist" placeholder="e.g. datalist">-->
-<!--            <datalist id="json-datalist"></datalist>-->
-
-
+        <div>
+            <input type="text" name="building_name" id="buildingName"/>
         </div>
     </div>
 

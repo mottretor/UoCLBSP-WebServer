@@ -1,8 +1,10 @@
 <?php
 
-class Manage_building extends CI_Controller{
-    
-    public function index() {
+class Manage_building extends CI_Controller
+{
+
+    public function index()
+    {
         echo "fgsfdgdfgdf";
     }
 
@@ -12,12 +14,14 @@ class Manage_building extends CI_Controller{
 //        $this->load->model('manage_building_model');
 //        $this->manage_building_model->search();
 //    }
-    
-    public function building(){
+
+    public function building()
+    {
         $this->load->view('buildings/add');
     }
 
-    public function add_building(){
+    public function add_building()
+    {
         $this->load->model('manage_building_model');
         $data = array(
             'name' => $this->input->post('building_name'),
@@ -32,6 +36,27 @@ class Manage_building extends CI_Controller{
 
 //        $this->load->model('manage_building_model');
 //        $this->manage_building_model->add();
+    }
+
+    public function search_building($name)
+    {
+        if(isset($_GET['term'])){
+            $result = $this->mproduct->search($name);
+            if (count($result) > 0) {
+                foreach ($result as $buil)
+                    $arr[] = $buil->name;
+                echo json_decode($arr);
+            }
+        }
+
+
+
+//        $query = $this->manage_building_model->search;
+//        $data['building'] = null;
+//        if($query){
+//            $data['building'] = $query;
+//        }
+//        $this->load->view('buildings/edit.php', $data);
     }
 
 //    public function update(){
