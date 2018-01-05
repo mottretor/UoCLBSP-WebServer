@@ -28,10 +28,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             cursor: pointer;
         }
 
-        /*input[type=submit],*/
-        /*input[type=reset]:hover {*/
-        /*background-color: #45a049;*/
-        /*}*/
+        input[type=submit],
+        input[type=reset]:hover {
+        background-color: #45a049;
+        }
 
     </style>
     <!--    <link rel="stylesheet" type="text/css" href="assets/css/form.css">-->
@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div style="width: 25%;  height:100%; float: left; background-color: #343434">
         <div>
             </br>
-            <?php echo form_open('manage_building/add_building'); ?>
+            <form method="post" action="<?php echo base_url()?>index.php/manage_building/add_building">
 
             <table>
                 <tr>
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Graph Id :
                     </td>
                     <td>
-                        <input type="text" name="graph_id" id="graph_id" value="">
+                        <input type="text" name="graphId" id="graph_id" value="">
                     </td>
                 </tr>
 
@@ -156,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 function initMap() {
                     map = new google.maps.Map(document.getElementById('map'), {
                         center: {lat: 6.901120, lng: 79.860532},
-                        zoom: 17
+                        zoom: 16
                     });
 
                     map.addListener('dblclick', sendData);
