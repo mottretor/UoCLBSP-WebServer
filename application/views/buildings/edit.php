@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
     <meta http-equiv="Content-Type" content="text/html; charset=utf"/>
     <title>MANAGING BUILDINGS AND PEOPLE</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -17,7 +16,7 @@
 
         <div class="container">
             <br>
-            <div  style=" width: 300px">
+            <div  style="width: 300px">
 
             </div>
             <br />
@@ -26,11 +25,6 @@
         <div>
             <div>
                 <div class="container">
-                    <!--                    @if(isset($details))-->
-                    <!--                    <p>Search results <b> {{ $query }} </b> are</p>-->
-                    <!---->
-                    <!--                    {!! Form::open(['url' => '/update','method' => 'post']) !!}-->
-                    <!--                    <form action="/update" method="post">-->
                     <form method="post">
 
                         <table>
@@ -39,14 +33,8 @@
                                     Name :
                                 </td>
                                 <td>
-                                    <!-- {!!Form::text('name',null,['class'=>'form-control']);!!} -->
-                                    <!-- @foreach($details as $user) -->
 
-                                    <!-- <td>{{$user->name}}</td> -->
-
-
-                                    <!-- @endforeach -->
-                                    <input type="hidden" name="id" value="">
+<!--                                    <input type="hidden" name="id" value="">-->
                                     <input type="text" name="name" id="name" value="">
                                 </td>
                             </tr>
@@ -58,7 +46,7 @@
                                 <td>
                                     <!-- <input type="text" name="Description" value=""> -->
                                     <!-- {!!Form::text('description',null,['class'=>'form-control']);!!} -->
-                                    <input type="text" name="description" id="name" value="">
+                                    <input type="text" name="description" id="name" value="'.$data['description'].'">
                                 </td>
                             </tr>
 
@@ -84,16 +72,15 @@
 
                         </table>
 
-                        <input type="submit" name="update" value="UPDATE">
-                        <!-- <a type="button" href="/delete/{{$user->id}}">Delete</a> -->
-                        <button type="button" class="btn btn-default">Delete</button>
-                        <!-- <input type="submit" name="delete" value="DELETE"> -->
-                        <button type="button" class="btn btn-default">Back</button>
+<!--                        <input type="submit" name="update" value="UPDATE">-->
+<!--                        <!-- <a type="button" href="/delete/{{$user->id}}">Delete</a> -->
+<!--                        <button type="button" class="btn btn-default">Delete</button>-->
+<!--                        <!-- <input type="submit" name="delete" value="DELETE"> -->
+<!--                        <button type="button" class="btn btn-default">Back</button>-->
 
 
                     </form>
-                    <!--                    {!! Form::close() !!}-->
-                    <!--                    @endif-->
+
                 </div>
 
 
@@ -208,7 +195,7 @@
 //                    alert(data);
                     }
                     requestMap.open(method, urlPoly, shouldBeAsync);
-                    requestMap.send(mapData);
+                    // requestMap.send(mapData);
                 }
 
                 function loadmap() {
@@ -284,7 +271,7 @@
                         alert(data);
                     }
                     requestMap.open(method, urlPoly, shouldBeAsync);
-                    requestMap.send(mapData);
+                    // requestMap.send(mapData);
 
 
                 }
@@ -298,16 +285,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-<!-- <button type="button" class="btn btn-default"><a href="">Search Building</a></button> -->
-<!-- <button type="button" class="btn btn-default"><a href="">Update Building</a></button> -->
-<!-- <button type="button" class="btn btn-default"><a href="">Delete Building</a></button> -->
 
 </body>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>

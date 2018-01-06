@@ -5,12 +5,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script type="text/javascript">
-        $document.ready(function () {
+        $(document).ready(function () {
             $('#buildingName').autocomplete({
-               source: "<?php echo site_url('index.php/Manage_building/search_building/?');?>"
+                source: "<?php echo site_url('index.php/Manage_building/search_building/?');?>"
             });
+            $(document).getElementById('buildingName').getAttribute('value', $name);
         });
+    </script>
+    <script>
+        $term = $(document).getElementById('buildingName').value;
+        console.log('hi');
     </script>
 </head>
 
@@ -19,7 +25,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div style="width: 25%;  height:100%; float: left; background-color: #343434">
         <div>
-            <input type="text" name="building_name" id="buildingName"/>
+            <form method="post" action="<?php echo base_url() ?>index.php/manage_building/search">
+                <input type="text" name="building_name" id="buildingName">
+                <input type="submit" value="Search">
+            </form>
+
+
         </div>
     </div>
 

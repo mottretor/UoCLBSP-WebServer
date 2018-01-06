@@ -38,25 +38,78 @@ class Manage_building extends CI_Controller
 //        $this->manage_building_model->add();
     }
 
-    public function search_building($name)
-    {
-        if(isset($_GET['term'])){
-            $result = $this->mproduct->search($name);
-            if (count($result) > 0) {
-                foreach ($result as $buil)
-                    $arr[] = $buil->name;
-                echo json_decode($arr);
-            }
-        }
-
-
-
-//        $query = $this->manage_building_model->search;
-//        $data['building'] = null;
-//        if($query){
-//            $data['building'] = $query;
+//    public function search_building($name, $buildingName)
+//    {
+//        if (isset($_GET['term'])) {
+//            $result = $this->buildi->search($name);
+//            if (count($result) > 0) {
+//                foreach ($result as $build)
+//                    $arr[] = $build->name;
+//                    $res[] = $build;
+//                echo json_decode($arr);
+//            }
+//            return $build;
 //        }
-//        $this->load->view('buildings/edit.php', $data);
+//
+//        if (isset($_POST['building_name'])) {
+//            $search['results']
+//            $result = $this->buildi->search($buildingName);
+//            if (count($result) > 0) {
+//                $details = array(
+//                    'building_name' => 'name',
+//                    'description' => 'description',
+//                    'latitudes' => 'latitudes',
+//                    'longitudes' => 'longitudes',
+//                    'graphId' => 'graph_id'
+//                );
+////                $output = '<div>'.$details['building_name'].'</div>';
+//
+//            }
+//        }
+//    }
+
+    public function search()
+    {
+        if ($this->input->post('term')) {
+            $search['results'] = $this->Mproducts->search($this->input->post('term'));
+        } else {
+//            redirect(base_url() . 'index.php/Admin_home/buildings');
+        }
+        $data['description'] = 'description';
+        $this->load->vars($data);
+        $this->load->view('buildings/edit', $data);
+//        console.log(description);
+    }
+
+    public function edit_building()
+    {
+        echo 'pl';
+//        $this->search_building();
+
+//        if (isset($_GET['term'])) {
+//            $result = $this->buildi->search($name);
+//            if (count($result) > 0) {
+//                foreach ($result as $buil)
+//                    $arr[] = $buil->name;
+//                echo json_decode($arr);
+//            }
+//        }
+//        $query = $this->Manage_building_model->edit();
+//        $details = array(
+//            'building_name' => 'name',
+//            'description' => 'description',
+//            'latitudes' => 'latitudes',
+//            'longitudes' => 'longitudes',
+//            'graphId' => 'graph_id'
+//        );
+
+
+//        $data1['buildings'] = null;
+//        if($query){
+//            $data1['buildings'] = $query;
+//        }
+
+        $this->load->view('buildings/edit');
     }
 
 //    public function update(){
