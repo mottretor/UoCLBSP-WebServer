@@ -25,7 +25,7 @@
         <div>
             <div>
                 <div class="container">
-                    <form method="post">
+                    <form method="post" action="Manage_building_model/search">
 
                         <table>
                             <tr>
@@ -35,7 +35,7 @@
                                 <td>
 
 <!--                                    <input type="hidden" name="id" value="">-->
-                                    <input type="text" name="name" id="name" value="">
+                                    <input type="text" name="name" id="name" value="<?php echo $building_name ?>">
                                 </td>
                             </tr>
 
@@ -46,7 +46,7 @@
                                 <td>
                                     <!-- <input type="text" name="Description" value=""> -->
                                     <!-- {!!Form::text('description',null,['class'=>'form-control']);!!} -->
-                                    <input type="text" name="description" id="name" value="'.$data['description'].'">
+                                    <input type="text" name="description" id="name" value="<?php echo $description ?>">
                                 </td>
                             </tr>
 
@@ -55,7 +55,7 @@
                                     Latitude :
                                 </td>
                                 <td>
-                                    <input type="text" name="Latitudes" id="infoLat" value="">
+                                    <input type="text" name="Latitudes" id="infoLat" value="<?php echo $latitudes ?>">
 
                                 </td>
                             </tr>
@@ -65,7 +65,14 @@
                                     Longitude :
                                 </td>
                                 <td>
-                                    <input type="text" name="Longitudes" id="infoLng" value="">
+                                    <input type="text" name="Longitudes" id="infoLng" value="<?php echo $longitudes ?>">
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="graphId" id="graph_id" value="<?php echo $graph_id ?>">
 
                                 </td>
                             </tr>

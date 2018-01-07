@@ -13,9 +13,9 @@
         }
 
         header {
-            border-bottom: 1px solid #cdcdcd;
+            /*border-bottom: 1px solid #cdcdcd;*/
             padding: 40px 0;
-            background-color: #343434;
+            background-color: #F8F8F8;
         }
 
         .container {
@@ -34,7 +34,7 @@
 
         @media screen and (min-width: 900px) {
             h1 {
-                color: white;
+                color: #585858;
                 font-size: 1.4em;
                 text-align: left;
             }
@@ -42,13 +42,14 @@
 
         h1 span {
             display: none;
+            /*color: #888888;*/
         }
 
         @media screen and (min-width: 900px) {
             h1 span {
                 display: inline;
                 font-size: .6em;
-                color: #898989;
+                color: #585858;
             }
         }
 
@@ -101,7 +102,7 @@
             border-radius: 1px;
             height: 5px;
             width: 35px;
-            background: white;
+            background: #A0A0A0;
             position: absolute;
             display: block;
             content: '';
@@ -153,7 +154,7 @@
             position: fixed;
             top: 0;
             left: -250px;
-            background: #343434;
+            background: #F8F8F8;
             font-size: .8em;
             font-family: sans-serif;
             font-weight: 300;
@@ -171,22 +172,22 @@
         }
 
         aside nav ul li:first-of-type {
-            border-top: 1px solid #565656;
+            /*border-top: 1px solid #565656;*/
         }
 
         aside nav ul li {
-            border-bottom: 1px solid #565656;
+            /*border-bottom: 1px solid #565656;*/
         }
 
         aside nav ul li a {
             padding: 10px 20px;
             display: block;
-            color: #fff;
+            color: #404040;
             text-decoration: none;
         }
 
         aside nav ul li a:hover {
-            background: #454545;
+            background: #E8E8E8;
         }
         /* JavaScript toggle */
 
@@ -212,6 +213,7 @@
             /*text-decoration: underline;*/
         }
         #map {
+            margin: 5px;
             height: 600px;
             width: 100%;
         }
@@ -249,7 +251,7 @@
                 // console.log(target+'.php');
 
                 $.ajax({
-                    url: '<?php echo base_url(); ?>' + 'index.php/Manage_building/building',
+                    url: '<?php echo base_url(); ?>' + target,
                     method: 'GET',
                     success: function (data) {
                         contain.html(data);
@@ -287,19 +289,19 @@
     <p></p>
     <p></p>
     <nav id="nav">
-        <p>Manage Map</p>
+        <p style="color: #888888"><b>Manage Map</b></p>
         <ul>
-            <li><a href="#" data-target="geofencing">Geofencing</a></li>
-            <li><a href="#" data-target="paths">Paths</a></li>
-            <li><a href="#" data-target="add_building">Buildings</a></li>
-            <li><a href="#" data-target="rooms">Rooms</a></li>
-            <li><a href="#" data-target="people">People</a></li>
+            <li><a href="#" data-target="geofencing"><b>Geofencing</b></a></li>
+            <li><a href="#" data-target="paths"><b>Paths</b></a></li>
+            <li><a href="#" data-target="index.php/Manage_building/building"><b>Buildings</b></a></li>
+            <li><a href="#" data-target="rooms"><b>Rooms</b></a></li>
+            <li><a href="#" data-target="index.php/Manage_people/people"><b>People</b></a></li>
         </ul>
 
-        <p>Manage Roles</p>
+        <p style="color: #888888"><b>Manage Roles</b></p>
         <ul>
-            <li><a href="#" data-target="admins">Admins</a></li>
-            <li><a href="#" data-target="users">Users</a></li>
+            <li><a href="#" data-target="admins"><b>Admins</b></a></li>
+            <li><a href="#" data-target="users"><b>Users</b></a></li>
         </ul>
     </nav>
     <p>Copyright @University of Colombo &copy; 2017</p>
