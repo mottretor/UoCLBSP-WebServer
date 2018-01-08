@@ -1,52 +1,37 @@
-<!doctype html>
-<html lang="en">
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+
+<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Autocomplete - Default functionality</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $( function() {
-            var availableTags = [
-                "ActionScript",
-                "AppleScript",
-                "Asp",
-                "BASIC",
-                "C",
-                "C++",
-                "Clojure",
-                "COBOL",
-                "ColdFusion",
-                "Erlang",
-                "Fortran",
-                "Groovy",
-                "Haskell",
-                "Java",
-                "JavaScript",
-                "Lisp",
-                "Perl",
-                "PHP",
-                "Python",
-                "Ruby",
-                "Scala",
-                "Scheme"
-            ];
-            $( "#tags" ).autocomplete({
-                source: availableTags
-            });
-        } );
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 </head>
+
 <body>
+<div style="width: 100%; height: 90%; float: bottom">
 
-<div class="ui-widget">
-    <label for="tags">Tags: </label>
-    <input id="tags">
+    <div style="width: 25%;  height:100%; float: left; background-color: #343434">
+        <form method="post" action="index.php/Manage_building/search_building">
+            <table>
+                <tr>
+                    <td>
+                        <input type="text" name="name">
+                    </td>
+
+                    <td>
+                        <input type="text" name="id">
+                    </td>
+
+                    <td>
+                        <input type="submit" name="button" value="Search">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
 </div>
-
 
 </body>
 </html>

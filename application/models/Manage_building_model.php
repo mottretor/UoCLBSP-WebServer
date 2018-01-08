@@ -11,11 +11,11 @@ class Manage_building_model extends CI_Model
     public function selected($datasearch1)
     {
         var_dump($datasearch1);
-        if (isset($_POST['building_name'])) {
+        if (isset($_POST['name'])) {
 //            echo 'poo';
-            $name = $_POST['building_name'];
+            $id = $_POST['id'];
 //            echo $name;
-            $query = $this->db->select('*')->from('building')->like('name', $name, 'before')->get();
+            $query = $this->db->select('*')->from('building')->where('id', $id)->get();
 //            $query = $this->db->query("SELECT * FROM building where name = '$name';");
 //            var_dump($query);
 
@@ -23,8 +23,8 @@ class Manage_building_model extends CI_Model
 //            var_dump($rows);
 //            $rows['name'];
             $data2 = array(
-//                'id' => $rows['id'],
-                'building_name' => $rows['name'],
+                'id' => $rows['id'],
+                'name' => $rows['name'],
                 'description' => $rows['description'],
                 'latitudes' => $rows['latitudes'],
                 'longitudes' => $rows['longitudes'],
@@ -33,7 +33,6 @@ class Manage_building_model extends CI_Model
 //            var_dump($data2);
 
             $this->load->view('buildings/selected', $data2);
-
         }
     }
 
@@ -41,10 +40,11 @@ class Manage_building_model extends CI_Model
     {
 //        echo 'ok';
 //        var_dump($datasearch2);
-        if (isset($_POST['building_name'])) {
+        if (isset($_POST['name'])) {
 //            echo 'poo';
-            $name = $_POST['building_name'];
-            $query = $this->db->select('*')->from('building')->like('name', $name, 'before')->get();
+            $id = $_POST['id'];
+            $query = $this->db->select('*')->from('building')->where('id', $id)->get();
+//            $query = $this->db->select('*')->from('building')->like('name', $name, 'before')->get();
 //            $query = $this->db->query("SELECT * FROM building where name = '$name';");
 //            var_dump($query);
 
@@ -53,7 +53,7 @@ class Manage_building_model extends CI_Model
 //            $rows['name'];
             $data2 = array(
                 'id' => $rows['id'],
-                'building_name' => $rows['name'],
+                'name' => $rows['name'],
                 'description' => $rows['description'],
                 'latitudes' => $rows['latitudes'],
                 'longitudes' => $rows['longitudes'],
@@ -70,15 +70,8 @@ class Manage_building_model extends CI_Model
         var_dump($datasearch3);
         if (isset($_POST['name'])) {
 //            echo 'poo';
-            $name = $_POST['name'];
-            echo $name;
-            $query = $this->db->select('id')->from('building')->where('name', $name)->get();
-            $rows = $query->row_array();
-            $row = array(
-                'id' => $rows['id']
-            );
-            $id = $row['id'];
-//            echo $id;
+            $id = $_POST['id'];
+
             $data3 = array(
                 'name' => $_POST['name'],
                 'description' => $_POST['description'],
@@ -87,54 +80,6 @@ class Manage_building_model extends CI_Model
                 'graph_id' => $_POST['graphId']
             );
             $this->db->where('id', $id)->update('building', $data3);
-//            var_dump($data2);
-//            $rows = $query->row_array();
-//            var_dump($rows);
-
-
-//            $this->load->view('buildings/edit', $data3);
         }
     }
-
-//    public function search($name)
-//    {
-////        $this->db->select('*');
-////        $this->db->from('building');
-//        $this->db->like('name', $name);
-//        return $this->db->get('building')->result();
-//
-//// Produces SQL:
-//// SELECT * FROM Books WHERE BookName LIKE '%Power%';
-//    }
-
-//    public function edit()
-//    {
-//        $this->db->select('name, description, latitudes, longitudes, graph_id');
-//        $this->db->from('buildings');
-//        $query = $this->db->get();
-//        $details = $query->result();
-//    }
-
-
-//    public function search($term){
-//        $data = array();
-//        $this->db->select('description, latitudes, longitudes, graph_id');
-//        $this->db->like('name', $term);
-//        $Q = $this->db->get('products');
-//        if($Q->num_rows() > 0){
-//            foreach ($Q->result_array() as $data){
-//                $data = array(
-//                    'name' => 'name',
-//                    'description' => 'description',
-//                    'latitudes' => 'latitudes',
-//                    'longitudes' => 'longitudes',
-//                    'graphId' => 'graph_id'
-//                );
-//            }
-//        }
-//        $Q->free_result();
-//        return $data;
-//
-//    }
-
 }

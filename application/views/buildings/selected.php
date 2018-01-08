@@ -12,11 +12,12 @@
 <body>
     <div>
         <p id="details">
-            Building Name: <?php echo $building_name ?>
+            Building Name: <?php echo $name ?>
         </p>
         <form method="post" action="<?php echo base_url()?>index.php/Manage_building/update_building">
             <input type="submit" name="edit" value="Edit">
-            <input type="text" name="building_name" value="<?php echo $building_name ?>">
+            <input type="text" name="name" value="<?php echo $name ?>">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
         </form>
         <form method="post" action="index.php/Manage_building/delete_building">
             <input type="submit" name="delete" value="Delete">

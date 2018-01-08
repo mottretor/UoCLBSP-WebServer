@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Name :
                     </td>
                     <td>
-                        <input type="text" name="building_name">
+                        <input type="text" name="name">
                     </td>
                 </tr>
 

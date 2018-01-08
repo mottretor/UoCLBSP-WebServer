@@ -35,7 +35,7 @@
                                 <td>
 
 <!--                                    <input type="hidden" name="id" value="">-->
-                                    <input type="text" name="name" id="name" value="<?php echo $building_name ?>">
+                                    <input type="text" name="name" id="name" value="<?php echo $name ?>">
                                 </td>
                             </tr>
 
@@ -87,6 +87,13 @@
 
                             <tr>
                                 <td>
+                                    <input type="hidden" name="id" id="building_id" value="<?php echo $id ?>">
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
                                     <input type="submit" name="update" value="Update">
 
                                 </td>
@@ -98,9 +105,7 @@
 
                 </div>
 
-
             </div>
-
 
         </div>
 <!--        <form method="post" action="--><?php //echo base_url()?><!--/index.php/Manage_building/change_building">-->
