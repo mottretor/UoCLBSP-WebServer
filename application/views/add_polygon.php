@@ -57,7 +57,8 @@
             center: {lat: 6.902215976621638, lng: 79.86069999999995}  // Center the map
         });
 
-        var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        // var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPoly = "http://localhost:1978";
         var method = "POST";
         var mapData = JSON.stringify({"type": "mapRequest"});
         var shouldBeAsync = true;
@@ -230,7 +231,7 @@
 
     function sendData(){
         alert(json);
-        var url = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var url = "http://localhost:1978";
         var method = "POST";
         var postData = json;
         // want shouldBeAsync = true.

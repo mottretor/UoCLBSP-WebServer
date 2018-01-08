@@ -65,7 +65,7 @@ class Manage_building extends CI_Controller
         $this->load->model('manage_building_model');
 
         $datasearch3 = array(
-            'name' => $this->input->post('building_name'),
+            'name' => $this->input->post('name'),
             'description' => $this->input->post('description'),
             'latitudes' => $this->input->post('latitudes'),
             'longitudes' => $this->input->post('longitudes'),

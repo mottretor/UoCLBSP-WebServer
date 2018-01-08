@@ -55,7 +55,7 @@
                                     Latitude :
                                 </td>
                                 <td>
-                                    <input type="text" name="Latitudes" id="infoLat" value="<?php echo $latitudes ?>">
+                                    <input type="text" name="latitudes" id="infoLat" value="<?php echo $latitudes ?>">
 
                                 </td>
                             </tr>
@@ -65,7 +65,7 @@
                                     Longitude :
                                 </td>
                                 <td>
-                                    <input type="text" name="Longitudes" id="infoLng" value="<?php echo $longitudes ?>">
+                                    <input type="text" name="longitudes" id="infoLng" value="<?php echo $longitudes ?>">
 
                                 </td>
                             </tr>

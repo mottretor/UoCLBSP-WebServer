@@ -68,11 +68,11 @@ class Manage_building_model extends CI_Model
     public function change($datasearch3)
     {
         var_dump($datasearch3);
-        if (isset($_POST['building_name'])) {
+        if (isset($_POST['name'])) {
 //            echo 'poo';
-            $name = $_POST['building_name'];
+            $name = $_POST['name'];
             echo $name;
-            $query = $this->db->select('id')->from('building')->where('name', $name);
+            $query = $this->db->select('id')->from('building')->where('name', $name)->get();
             $rows = $query->row_array();
             $row = array(
                 'id' => $rows['id']
@@ -80,11 +80,11 @@ class Manage_building_model extends CI_Model
             $id = $row['id'];
 //            echo $id;
             $data3 = array(
-                'name' => $_POST['building_name'],
+                'name' => $_POST['name'],
                 'description' => $_POST['description'],
                 'latitudes' => $_POST['latitudes'],
                 'longitudes' => $_POST['longitudes'],
-                'graph_id' => $_POST['graph_id']
+                'graph_id' => $_POST['graphId']
             );
             $this->db->where('id', $id)->update('building', $data3);
 //            var_dump($data2);

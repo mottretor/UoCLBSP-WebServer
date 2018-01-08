@@ -359,7 +359,7 @@
                 requestMap.onload = function () {
                     var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
                     var data = requestMap.response;
-                    alert(data);
+                    // alert(data);
                     maparray = JSON.parse(data);
 
                     // //alert(dataPoly);
@@ -400,7 +400,7 @@
 //                    alert(data);
                 }
                 requestMap.open(method, urlPoly, shouldBeAsync);
-                // requestMap.send(mapData);
+                requestMap.send(mapData);
             }
 
             function loadmap() {
@@ -461,7 +461,7 @@
                 var finalJson = {};
                 finalJson['type'] = "addPaths";
                 finalJson['Changes'] = resultJson;
-                alert(JSON.stringify(finalJson));
+                // alert(JSON.stringify(finalJson));
 
 //                var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
                 var urlPoly = "http://localhost:1978";
@@ -473,7 +473,7 @@
                 requestMap.onload = function () {
                     var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
                     var data = requestMap.response;
-                    alert(data);
+                    // alert(data);
                 }
                 requestMap.open(method, urlPoly, shouldBeAsync);
                 requestMap.send(mapData);
