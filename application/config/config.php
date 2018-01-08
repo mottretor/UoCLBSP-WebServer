@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://ec2-52-72-156-17.compute-1.amazonaws.com/UoCMaps/';
+//$config['base_url'] = 'http://localhost/UoCMaps/';
 
 /*
 |--------------------------------------------------------------------------

@@ -156,7 +156,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     // mapdata = '{"graphs":[{"vertexes":[{"lng":79.859614,"id":10,"lat":6.903579},{"lng":79.859726,"id":11,"lat":6.90225},{"lng":79.85948,"id":12,"lat":6.902409}],"edges":[{"destination":10,"id":9,"source":12},{"destination":12,"id":11,"source":11}],"id":16}],"polygons":[{"vertexes":[{"lng":79.858825,"lat":6.90357},{"lng":79.86155,"lat":6.903602},{"lng":79.860821,"lat":6.901334},{"lng":79.859147,"lat":6.902622}],"id":16}]}';
 
 //                var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
-                    var urlPoly = "http://localhost:1978";
+                    var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
                     var method = "POST";
                     var mapData = JSON.stringify({"type": "mapRequest"});
                     var shouldBeAsync = true;
@@ -270,7 +270,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     alert(JSON.stringify(finalJson));
 
 //                var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
-                    var urlPoly = "http://localhost:1978";
+                    var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
                     var method = "POST";
                     var mapData = JSON.stringify(finalJson);
                     var shouldBeAsync = true;
