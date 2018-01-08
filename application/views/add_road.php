@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
                     center: {lat: 6.901120, lng: 79.860532},
-                    zoom: 17
+                    zoom: 16
                 });
 
                 map.addListener('dblclick', sendData);
@@ -104,7 +104,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 requestMap.open(method, urlPoly, shouldBeAsync);
                 requestMap.send(mapData);
 
-            }
+            } //init ends
+
             function loadmap() {
                 flag = 1;
                 for (var z = 0; z < graphArray.length; z++) {

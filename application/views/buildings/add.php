@@ -28,10 +28,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             cursor: pointer;
         }
 
-        input[type=submit],
-        input[type=reset]:hover {
-        background-color: #45a049;
-        }
+        /*input[type=submit],*/
+        /*input[type=reset]:hover {*/
+        /*background-color: #B8B8B8;*/
+        /*}*/
 
     </style>
     <!--    <link rel="stylesheet" type="text/css" href="assets/css/form.css">-->
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
 <div style="width: 100%; height: 90%; float: bottom">
-    <div style="width: 25%;  height:100%; float: left; background-color: #E8E8E8">
+    <div style="width: 25%;  height:100%; float: left; background-color: #E8E8E8; border-top: 5px solid white;">
         <div>
             </br>
             <form method="post" action="<?php echo base_url()?>index.php/manage_building/add_building">
@@ -96,14 +96,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input class="button" type="reset" name="reset" value="Reset">
 
             </form>
-
-
-            <p>Drag the marker to where you should add the building!</p>
-
-            <div id="infoPanel">
-                <div id="markerStatus"><i>Drag the marker.</i></div>
-
-            </div>
 
         </div>
     </div>
@@ -205,7 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             });
 
                             polydraw.setMap(map);
-                            // polydraw.addListener('click', pointtwo);
+                            polydraw.addListener('click', setAsBuilding);
                             outJSON[polyArray[i].id] = [];
                             polyindex.push(polyArray[i].id);
                             // newpoint.addListener('click', pointone);
@@ -228,13 +220,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             sourId = graphArray[z].vertexes[verti]["id"];
                             var sourcepoint = {'lat': sourcelat, 'lng': sourcelng};
 
-                            sourcemark = new google.maps.Marker({
-                                position: sourcepoint,
-                                map: map,
-                                id: graphArray[z].id
-                            });
+                            // sourcemark = new google.maps.Marker({
+                            //     position: sourcepoint,
+                            //     map: map,
+                            //     id: graphArray[z].id
+                            // });
                             // alert(sourcemark.id);
-                            sourcemark.addListener('click', setAsBuilding);
+                            // sourcemark.addListener('click', setAsBuilding);
                             graphVertexes[sourId] = sourcepoint;
                         }
 
@@ -243,7 +235,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             var destid = graphArray[z].edges[k]["destination"];
                             var graphline = new google.maps.Polyline({
                                 path: [graphVertexes[sourceid], graphVertexes[destid]],
-                                strokeColor: 'black',
+                                strokeColor: '#E2E054',
                                 strokeOpacity: 1.0,
                                 strokeWeight: 5
                             });

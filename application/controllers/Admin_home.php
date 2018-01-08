@@ -11,8 +11,8 @@ class Admin_home extends CI_Controller
         $this->load->view('add_polygon');
     }
 
-    public function add_roads(){
-        $this->load->view('add_roads');
+    public function add_road(){
+        $this->load->view('add_road');
     }
 
     public function buildings()

@@ -291,10 +291,11 @@
     <nav id="nav">
         <p style="color: #888888"><b>Manage Map</b></p>
         <ul>
-            <li><a href="#" data-target="geofencing"><b>Geofencing</b></a></li>
-            <li><a href="#" data-target="paths"><b>Paths</b></a></li>
+            <li><a href="#" data-target="index.php/Admin_home/add_polygon"><b>Geofencing</b></a></li>
+            <li><a href="#" data-target="index.php/Admin_home/add_road"><b>Paths</b></a></li>
             <li><a href="#" data-target="index.php/Manage_building/building"><b>Buildings</b></a></li>
-            <li><a href="#" data-target="rooms"><b>Rooms</b></a></li>
+            <li><a href="#" data-target="index.php/Manage_rooms/rooms"><b>Rooms</b></a></li>
+            <li><a href="#" data-target="index.php/Manage_room_types/room_types"><b>Room Types</b></a></li>
             <li><a href="#" data-target="index.php/Manage_people/people"><b>People</b></a></li>
         </ul>
 
@@ -399,7 +400,7 @@
 //                    alert(data);
                 }
                 requestMap.open(method, urlPoly, shouldBeAsync);
-                requestMap.send(mapData);
+                // requestMap.send(mapData);
             }
 
             function loadmap() {

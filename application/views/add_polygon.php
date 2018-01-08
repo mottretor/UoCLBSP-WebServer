@@ -12,7 +12,7 @@
         }
         /* Optional: Makes the sample page fill the window. */
         html, body {
-            height: 95%;
+            height: 100%;
             margin: 0;
             padding: 0;
         }
@@ -33,11 +33,80 @@
     var draw = 1;
     var outerVertexes = [];
     var json;
+    var flag = 0;
+    var line;
+    var source;
+    var map;
+    var mapdata;
+    var maparray;
+    var polyArray;
+    var graphArray;
+    var path, graph, point, newpoint;
+    var temp;
+    var flag;
+    var destination;
+    var polygons = {};
+    var polyid = 0;
+    var startingPoint;
+    var outJSON = {};
+    var polyindex = [];
+
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             zoom: 16,
             center: {lat: 6.902215976621638, lng: 79.86069999999995}  // Center the map
         });
+
+        var urlPoly = "http://localhost:1978";
+        var method = "POST";
+        var mapData = JSON.stringify({"type": "mapRequest"});
+        var shouldBeAsync = true;
+        var requestMap = new XMLHttpRequest();
+
+        requestMap.onload = function () {
+            var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
+            var data = requestMap.response;
+            alert(data);
+            maparray = JSON.parse(data);
+
+            // //alert(dataPoly);
+            polyArray = maparray.polygons;
+            graphArray = maparray.graphs;
+            loadmap();
+            line = [];
+            temp = [];
+            flag = 0;
+            source = [];
+            cestination = [];
+            // var verticelatlng = [];
+            // var verticepos = [];
+
+            for (var i = 0; i < polyArray.length; i++) {
+                path = [];
+                // graph = [];
+                var polyObject = polyArray[i].vertexes;
+
+                // alert(JSON.stringify(polyObject));
+                var polydraw = new google.maps.Polygon({
+                    paths: polyObject,
+                    strokeColor: '#aeb20c',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    fillColor: '#eaf01b',
+                    fillOpacity: 0.35,
+                    id: polyArray[i].id
+                });
+                polydraw.setMap(map);
+                // polydraw.addListener('click', pointtwo);
+                outJSON[polyArray[i].id] = [];
+                polyindex.push(polyArray[i].id);
+                // newpoint.addListener('click', pointone);
+            }
+//                    alert(data);
+        }
+        requestMap.open(method, urlPoly, shouldBeAsync);
+        requestMap.send(mapData);
+
         poly = new google.maps.Polyline({
             strokeColor: '#000000',
             strokeOpacity: 1.0,
@@ -49,39 +118,45 @@
         map.addListener('click', addLatLng);
         //map.addListener('dblclick',sendData(json));
         //alert(json);
-        map.addListener('dblclick',function(){
-            alert(json);
-            var url = "http://localhost:1978";
-            var method = "POST";
-            var postData = json;
-            // want shouldBeAsync = true.
-            // Otherwise, it'll block ALL execution waiting for server response.
-            var shouldBeAsync = true;
+        map.addListener('dblclick', sendData);
+    } //init ends
 
-            var request = new XMLHttpRequest();
-            // request.onreadystatechange = function(){
-            //  if(request.readyState == XMLHttpRequest.DONE && request.status ==200){
-            //      alert('request.responseXML');
-            //  }
-            // }
-            request.onload = function () {
-                var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-                var data = request.response;
-                alert(data); // Returned data, e.g., an HTML document.
+    function loadmap() {
+        flag = 1;
+        for (var z = 0; z < graphArray.length; z++) {
+            var sourcelat, sourcelng, destlat, destlng, sourId;
+            var graphVertexes = {};
+            for (var verti = 0; verti < graphArray[z].vertexes.length; verti++) {
+                sourcelat = graphArray[z].vertexes[verti]["lat"];
+                sourcelng = graphArray[z].vertexes[verti]["lng"];
+                sourId = graphArray[z].vertexes[verti]["id"];
+                var sourcepoint = {'lat': sourcelat, 'lng': sourcelng};
+
+                sourcemark = new google.maps.Marker({
+                    position: sourcepoint,
+                    map: map,
+                    id: graphArray[z].id
+                });
+                // sourcemark.addListener('click', pointone);
+                graphVertexes[sourId] = sourcepoint;
             }
-            request.open(method, url, shouldBeAsync);
-            //request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            //request.setRequestHeader("Authorization");
-            //request.setRequestHeader("Authorization", null);
-            // Or... whatever
-            // Actually sends the request to the server.
-            request.send(postData);
 
-        });
+            for (var k = 0; k < graphArray[z].edges.length; k++) {
+                var sourceid = graphArray[z].edges[k]["source"];
+                var destid = graphArray[z].edges[k]["destination"];
+                var graphline = new google.maps.Polyline({
+                    path: [graphVertexes[sourceid], graphVertexes[destid]],
+                    strokeColor: 'black',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 5
+                });
+
+                graphline.setMap(map);
+                graphline = [];
+            }//
+        }
     }
-    // console.log("iuhiu");
-    // This allows the user to define exit points of the polygon******************************************************
-    // Handles click events on a map, and adds a new point to the Polyline.
+
     function addLatLng(event) {
         var path = poly.getPath();
 
@@ -140,9 +215,6 @@
             uoc.setMap(map);
             poly = [];
             draw = 0;
-
-
-            // window.alert(pathvertices);
         });
     }
     function addouts(e) {
@@ -154,6 +226,27 @@
         outerVertexes.push({'latitudes':marker1.position.lat(),'longitudes':marker1.position.lng()});
         jsonpath['outvertexes'] = outerVertexes;
         json = JSON.stringify(jsonpath);
+    }
+
+    function sendData(){
+        alert(json);
+        var url = "http://localhost:1978";
+        var method = "POST";
+        var postData = json;
+        // want shouldBeAsync = true.
+        // Otherwise, it'll block ALL execution waiting for server response.
+        var shouldBeAsync = true;
+
+        var request = new XMLHttpRequest();
+
+        request.onload = function () {
+            var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
+            var data = request.response;
+            alert(data); // Returned data, e.g., an HTML document.
+        }
+        request.open(method, url, shouldBeAsync);
+        request.send(postData);
+
     }
 
 </script>

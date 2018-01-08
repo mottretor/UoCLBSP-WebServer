@@ -10,30 +10,33 @@ class Manage_people_model extends CI_Model
 {
     public function add($data)
     {
-        return $this->db->insert('people', $data);
+        if(isset($_POST['people_name'])){
+            $building_name = $_POST['building_name'];
+            $query1 = $this->db->select('id')->from('building')->where('name', $building_name)->get();
+            $rows = $query1->row_array();
+            $building_id = array(
+                'building_id' => $rows['id']
+            );
+
+            $room_name = $_POST['room_name'];
+            $query2 = $this->db->select('id')->from('room')->where('name', $room_name)->get();
+            $rows2 = $query2->row_array();
+            $room_id = array(
+                'room_id' => $rows2['id']
+            );
+
+            $data3 = array(
+                'name' => $_POST['people_name'],
+                'designation' => $_POST['designation'],
+                'description' => $_POST['description'],
+//                'building_id' => $building_id['building_id'],
+                'room_id' => $room_id['room_id']
+            );
+
+            return $this->db->insert('people', $data3);
+        }
+
 
     }
 
-
-
-//    public function search($term){
-//        $data = array();
-//        $this->db->select('description, latitudes, longitudes, graph_id');
-//        $this->db->like('name', $term);
-//        $Q = $this->db->get('products');
-//        if($Q->num_rows() > 0){
-//            foreach ($Q->result_array() as $data){
-//                $data = array(
-//                    'name' => 'name',
-//                    'description' => 'description',
-//                    'latitudes' => 'latitudes',
-//                    'longitudes' => 'longitudes',
-//                    'graphId' => 'graph_id'
-//                );
-//            }
-//        }
-//        $Q->free_result();
-//        return $data;
-//
-//    }
 }
