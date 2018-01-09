@@ -28,18 +28,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             cursor: pointer;
         }
 
-        input[type=submit],
-        input[type=reset]:hover {
-            background-color: #45a049;
-        }
-
     </style>
     <!--    <link rel="stylesheet" type="text/css" href="assets/css/form.css">-->
 </head>
 
 <body>
 <div style="width: 100%; height: 90%; float: bottom">
-    <div style="width: 50%;  height:75%; align:centre; background-color: #343434">
+    <div style="width: 50%;  height:75%; align:centre; background-color: #E8E8E8; border-top: 5px solid white;">
         <div>
             </br>
             <form method="post" action="<?php echo base_url()?>index.php/manage_people/add_people">

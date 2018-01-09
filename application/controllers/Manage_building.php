@@ -17,7 +17,7 @@ class Manage_building extends CI_Controller
     {
         $this->load->model('manage_building_model');
         $data = array(
-            'name' => $this->input->post('building_name'),
+            'name' => $this->input->post('name'),
             'description' => $this->input->post('description'),
             'latitudes' => $this->input->post('latitudes'),
             'longitudes' => $this->input->post('longitudes'),
@@ -36,7 +36,8 @@ class Manage_building extends CI_Controller
         $this->load->model('manage_building_model');
 
         $datasearch1 = array(
-            'name' => $this->input->post('building_name'),
+            'name' => $this->input->post('name'),
+            'id' => $this->input->post('id'),
         );
 //        var_dump($datasearch);
 
@@ -51,7 +52,8 @@ class Manage_building extends CI_Controller
         $this->load->model('manage_building_model');
 
         $datasearch2 = array(
-            'name' => $this->input->post('building_name'),
+            'name' => $this->input->post('name'),
+            'id' => $this->input->post('id'),
         );
         var_dump($datasearch2);
 
@@ -65,12 +67,12 @@ class Manage_building extends CI_Controller
         $this->load->model('manage_building_model');
 
         $datasearch3 = array(
-            'name' => $this->input->post('building_name'),
+            'name' => $this->input->post('name'),
             'description' => $this->input->post('description'),
             'latitudes' => $this->input->post('latitudes'),
             'longitudes' => $this->input->post('longitudes'),
-            'graph_id' => $this->input->post('graphId')
-//            'id' => $this->input->post('id')
+            'graph_id' => $this->input->post('graphId'),
+            'id' => $this->input->post('id'),
         );
         var_dump($datasearch3);
 

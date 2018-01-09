@@ -16,8 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <table>
                 <tr>
                     <td>
-                        <input type="text" name="building_name">
+                        <input type="text" name="name">
                     </td>
+
+                    <td>
+                        <input type="text" name="id">
+                    </td>
+
                     <td>
                         <input type="submit" name="button" value="Search">
                     </td>

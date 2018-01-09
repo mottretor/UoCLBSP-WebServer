@@ -1,4 +1,5 @@
 <html>
+
     <head>
         <title>UoC Maps</title>
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
@@ -40,4 +41,6 @@
             </div>
         </main>
     </body>
+
+
 </html>
