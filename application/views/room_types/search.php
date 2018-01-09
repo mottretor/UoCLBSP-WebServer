@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
 <div style="width: 100%; height: 90%; float: bottom">
+
     <div style="width: 25%;  height:100%; float: left; background-color: #343434">
         <form method="post" action="<?php echo base_url()?>index.php/Manage_room_types/search_room_type">
             <table>

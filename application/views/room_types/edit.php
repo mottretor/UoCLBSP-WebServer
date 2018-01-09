@@ -46,17 +46,32 @@
 </head>
 
 <body>
+
+
 <div style="width: 25%; float: left; background-color: black; height: 100%">
+
+    <!--    <div class="container">-->
+    <!--        <br>-->
+    <!--        <div style="width: 300px">-->
+    <!---->
+    <!--        </div>-->
+    <!--        <br/>-->
+    <!--        <div id="result"></div>-->
+    <!--    </div>-->
     <div>
-        <form method="post" action="<?php echo base_url() ?>index.php/Manage_rooms/change_room">
+        <!--        <div>-->
+        <!--            <div class="container">-->
+        <form method="post" action="<?php echo base_url() ?>index.php/Manage_room_types/change_room_type">
 
             <table>
                 <tr>
                     <td>
-                        Name :
+                        Type :
                     </td>
                     <td>
-                        <input type="text" name="name" id="name" value="<?php echo $name ?>">
+
+                        <!--                                    <input type="hidden" name="id" value="">-->
+                        <input type="text" name="type" id="name" value="<?php echo $type ?>">
                     </td>
                 </tr>
 
@@ -65,36 +80,16 @@
                         Description :
                     </td>
                     <td>
-                        <input type="text" name="description" id="name" value="<?php echo $description ?>">
+                        <!-- <input type="text" name="Description" value=""> -->
+                        <!-- {!!Form::text('description',null,['class'=>'form-control']);!!} -->
+                        <input type="text" name="description" id="description" value="<?php echo $description ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        Floor Number :
-                    </td>
-                    <td>
-                        <input type="text" name="floor" id="floor" value="<?php echo $floor ?>">
-                    </td>
-                </tr>
+                        <input type="hidden" name="id" id="room_type_id" value="<?php echo $id ?>">
 
-                <tr>
-                    <td>
-                        Room Type :
-                    </td>
-                    <td>
-                        <input type="text" name="room_type" id="room_type" value="<?php echo $room_name ?>">
-                        <input type="text" name="room_type_id" id="room_type_id" value="<?php echo $room_type_id ?>">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        Building Name :
-                    </td>
-                    <td>
-                        <input type="text" name="building_name" id="building_name" value="<?php echo $building_name ?>">
-                        <input type="text" name="building_name_id" id="building_id" value="<?php echo $building_id ?>">
                     </td>
                 </tr>
 
@@ -111,6 +106,9 @@
 
     </div>
 
+    <!--        </div>-->
+
+    <!--    </div>-->
 </div>
 <div style="width: 75%; height:100%; float:right">
     <!--    <div>-->

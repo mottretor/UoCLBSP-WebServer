@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 //	}
     public function index()
     {
-        $this->load->view('buildings/search');
+        $this->load->view('rooms/search');
     }
 //
 //    public function index()

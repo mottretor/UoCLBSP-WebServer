@@ -49,18 +49,7 @@
 
 
 <div style="width: 25%; float: left; background-color: black; height: 100%">
-
-    <!--    <div class="container">-->
-    <!--        <br>-->
-    <!--        <div style="width: 300px">-->
-    <!---->
-    <!--        </div>-->
-    <!--        <br/>-->
-    <!--        <div id="result"></div>-->
-    <!--    </div>-->
     <div>
-        <!--        <div>-->
-        <!--            <div class="container">-->
         <form method="post" action="<?php echo base_url() ?>index.php/Manage_building/change_building">
 
             <table>
@@ -69,8 +58,6 @@
                         Name :
                     </td>
                     <td>
-
-                        <!--                                    <input type="hidden" name="id" value="">-->
                         <input type="text" name="name" id="name" value="<?php echo $name ?>">
                     </td>
                 </tr>
@@ -80,8 +67,6 @@
                         Description :
                     </td>
                     <td>
-                        <!-- <input type="text" name="Description" value=""> -->
-                        <!-- {!!Form::text('description',null,['class'=>'form-control']);!!} -->
                         <input type="text" name="description" id="name" value="<?php echo $description ?>">
                     </td>
                 </tr>
@@ -92,7 +77,6 @@
                     </td>
                     <td>
                         <input type="text" name="latitudes" id="infoLat" value="<?php echo $latitudes ?>">
-
                     </td>
                 </tr>
 
@@ -102,37 +86,30 @@
                     </td>
                     <td>
                         <input type="text" name="longitudes" id="infoLng" value="<?php echo $longitudes ?>">
-
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <input type="text" name="id" id="id" value="<?php echo $id ?>">
-                        <!--                                    <input type="hidden" name="id" id="id" value="-->
-                        <?php //echo $id ?><!--">-->
-
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <input type="hidden" name="graphId" id="graph_id" value="<?php echo $graph_id ?>">
-
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <input type="hidden" name="id" id="building_id" value="<?php echo $id ?>">
-
                     </td>
                 </tr>
 
                 <tr>
                     <td>
                         <input type="submit" name="update" value="Update">
-
                     </td>
                 </tr>
 
