@@ -1,6 +1,6 @@
 html,
             body {
-                font-family: 'Droid Serif';
+                font-family: 'Roboto';
                 background-color: #FAFAFA;
                 color: #FAFAFA;
                 font-size: 1.1em;
@@ -16,6 +16,7 @@ html,
                 position:fixed;
                 width: 100%;                
                 z-index: 2;
+                border-bottom: 2px solid #EBEBEB;
 
             }
 
@@ -156,23 +157,32 @@ html,
                 font-family: sans-serif;
                 font-weight: 300;
                 transition: all .3s ease;
+                margin-top: 69px;
 
             }
 
             aside p {
-                color: #F5F5F5;
-                padding: 10px;
+                
+                font-weight: 550;
+                color: #888888;
+                padding-left:10px;
+                padding-top: 10px;
+                
 
             }
 
             aside nav ul {
                 z-index: 0;
                 margin: 0;
-                padding: 0;
+               padding: 0;
             }
 
-            aside nav ul li:first-of-type {
-                /*border-top: 1px solid #565656;*/
+            aside nav p {
+                border-top: 1px solid #EBEBEB;
+                margin-bottom:10px;
+                margin-top: 0px;
+                
+                
             }
 
             aside nav ul li {
@@ -214,8 +224,9 @@ html,
             a {
                 text-decoration: none;
                 color: #6699cc;
+                
             }
-
+            
             a:hover {
                 /*text-decoration: underline;*/
             }
@@ -232,6 +243,11 @@ html,
                 background-color: #FAFAFA;
                 margin-top: 69px;
                 
+            }
+            
+            .list-item{
+                margin-left: 20px;
+                display: inline-block;
             }
 
 
