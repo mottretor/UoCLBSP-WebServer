@@ -21,7 +21,7 @@ class Manage_building_model extends CI_Model
 
             $rows = $query->row_array();
 //            var_dump($rows);
-//            $rows['name'];
+            $rows['name'];
             $data2 = array(
                 'id' => $rows['id'],
                 'name' => $rows['name'],
@@ -49,7 +49,7 @@ class Manage_building_model extends CI_Model
 //            var_dump($query);
 
             $rows = $query->row_array();
-            var_dump($rows);
+//            var_dump($rows);
 //            $rows['name'];
             $data2 = array(
                 'id' => $rows['id'],
