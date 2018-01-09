@@ -24,18 +24,19 @@
             $(document).ready(function () {
                 var trigger = $('#nav ul li a'),
                         contain = $('#cont');
-
+                
                 trigger.on('click', function () {
                     var $this = $(this),
                             target = $this.attr('data-target');
+                    
                     // console.log(target+'.php');
-
+                    
                     $.ajax({
                         url:  target,
                         method: 'GET',
                         success: function (data) {
                             contain.html(data);
-
+                            
 
                             // Toggle navigation
                             // $('#nav-toggle').click(function () {
@@ -45,13 +46,15 @@
                             // If sidebar is visible:
                             if ($('body').hasClass('show-nav')) {
                                 // Hide sidebar
+                                $('#cont').css('padding-right', '30px');
                                 $('body').removeClass('show-nav');
                             } else { // If sidebar is hidden:
                                 $('body').addClass('show-nav');
+                                $('#cont').css('padding-right', '280px');
 
                                 // Display sidebar
                             }
-
+                            $('#cont').css('padding-right', '30px');
                             return false;
                             // });
                         }

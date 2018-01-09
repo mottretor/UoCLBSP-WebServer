@@ -3,23 +3,11 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Complex Polylines</title>
-    <style>
-        /* Always set the map height explicitly to define the size of the div
-         * element that contains the map. */
-        #map {
-            height: 100%;
-        }
-        /* Optional: Makes the sample page fill the window. */
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
+    
 </head>
 <body>
-<div id="map" style="height: 100%"></div>
+<div id="map"></div>
 <script>
     // This creates an interactive map which constructs a polygon based on user clicks*****************************
     var marker, poly, map, pathline, latlngmarker0, pathline, polypath, uoc;
@@ -67,7 +55,7 @@
         requestMap.onload = function () {
             var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
             var data = requestMap.response;
-            alert(data);
+            
             maparray = JSON.parse(data);
 
             // //alert(dataPoly);
@@ -243,7 +231,7 @@
         request.onload = function () {
             var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
             var data = request.response;
-            alert(data); // Returned data, e.g., an HTML document.
+             // Returned data, e.g., an HTML document.
         }
         request.open(method, url, shouldBeAsync);
         request.send(postData);
