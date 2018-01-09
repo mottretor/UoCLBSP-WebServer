@@ -78,10 +78,10 @@
                 // alert(JSON.stringify(polyObject));
                 var polydraw = new google.maps.Polygon({
                     paths: polyObject,
-                    strokeColor: '#aeb20c',
+                    strokeColor: '#F1C40F',
                     strokeOpacity: 0.8,
                     strokeWeight: 3,
-                    fillColor: '#eaf01b',
+                    fillColor: '#F1F3A7',
                     fillOpacity: 0.35,
                     id: polyArray[i].id
                 });
@@ -124,7 +124,14 @@
                 sourcemark = new google.maps.Marker({
                     position: sourcepoint,
                     map: map,
-                    id: graphArray[z].id
+                    id: graphArray[z].id,
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 1,
+                        strokeWeight:2,
+                        // fillColor: "black",
+                        strokeColor:"white"
+                    }
                 });
                 // sourcemark.addListener('click', pointone);
                 graphVertexes[sourId] = sourcepoint;
@@ -135,7 +142,7 @@
                 var destid = graphArray[z].edges[k]["destination"];
                 var graphline = new google.maps.Polyline({
                     path: [graphVertexes[sourceid], graphVertexes[destid]],
-                    strokeColor: 'black',
+                    strokeColor: 'white',
                     strokeOpacity: 1.0,
                     strokeWeight: 5
                 });

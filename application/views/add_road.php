@@ -75,10 +75,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         // alert(JSON.stringify(polyObject));
                         var polydraw = new google.maps.Polygon({
                             paths: polyObject,
-                            strokeColor: '#aeb20c',
+                            strokeColor: '#F1C40F',
                             strokeOpacity: 0.8,
                             strokeWeight: 3,
-                            fillColor: '#eaf01b',
+                            fillColor: 'transparent',
                             fillOpacity: 0.35,
                             id: polyArray[i].id
                         });
@@ -110,7 +110,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         sourcemark = new google.maps.Marker({
                             position: sourcepoint,
                             map: map,
-                            id: graphArray[z].id
+                            id: graphArray[z].id,
+                            icon: {
+                                path: google.maps.SymbolPath.CIRCLE,
+                                scale: 4,
+                                strokeWeight:2,
+                                fillOpacity: 0.6,
+                                fillColor: "#2471A3",
+                                strokeColor:"#008B8B"
+                            },
                         });
                         sourcemark.addListener('click', pointone);
                         graphVertexes[sourId] = sourcepoint;
@@ -121,7 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         var destid = graphArray[z].edges[k]["destination"];
                         var graphline = new google.maps.Polyline({
                             path: [graphVertexes[sourceid], graphVertexes[destid]],
-                            strokeColor: 'black',
+                            strokeColor: 'white',
                             strokeOpacity: 1.0,
                             strokeWeight: 5
                         });
@@ -183,7 +191,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var sourcemark = new google.maps.Marker({
                         position: endPoint,
                         map: map,
-                        id: this.id
+                        id: this.id,
+                        icon: {
+                            path: google.maps.SymbolPath.CIRCLE,
+                            scale: 4,
+                            strokeWeight:2,
+                            fillOpacity: 0.6,
+                            fillColor: "#2471A3",
+                            strokeColor:"#008B8B"
+                        },
                     });
                     sourcemark.addListener('click', pointone);
 
