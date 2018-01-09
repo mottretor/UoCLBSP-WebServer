@@ -1,0 +1,237 @@
+html,
+            body {
+                font-family: 'Droid Serif';
+                background-color: #FAFAFA;
+                color: #FAFAFA;
+                font-size: 1.1em;
+                line-height: 1.6;
+                overflow-x: hidden;
+                margin: 0;
+            }
+
+            header {
+                /*border-bottom: 1px solid #cdcdcd;*/
+                
+                background-color: #FFFFFF;
+                position:fixed;
+                width: 100%;                
+                z-index: 2;
+
+            }
+
+            .container {
+                max-width: 750px;
+                /*margin-top: 10px;*/
+                margin-left: 75px;
+
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 1em;
+                text-align: center;
+                margin: 0;
+                line-height: 0;
+            }
+
+            @media screen and (min-width: 900px) {
+                h1 {
+                    color: #585858;
+                    font-size: 1.4em;
+                    text-align: left;
+                }
+            }
+
+            h1 span {
+                display: none;
+                /*color: #888888;*/
+            }
+
+            @media screen and (min-width: 900px) {
+                h1 span {
+                    display: inline;
+                    font-size: .6em;
+                    color: #585858;
+                }
+            }
+
+
+
+            h2 {
+                font-size: 1.5em;
+                margin: 1em 0 0;
+            }
+
+            dt {
+                font-weight: bold;
+            }
+
+            time {
+                font-size: .9em;
+                color: #898989;
+                display: block;
+            }
+            /* Nav icon positioning */
+
+            .position {
+                position: absolute;
+                top: 23px;
+                left: 30px;
+                transition: all .3s ease;
+                z-index: 5;
+            }
+
+            @media screen and (min-width: 900px) {
+                .position {
+                    position: fixed;
+                }
+            }
+            /* Elijah Manor Nav button */
+
+            #nav-toggle {
+                cursor: pointer;
+                padding: 10px 35px 16px 0px;
+            }
+
+            #nav-toggle span,
+            #nav-toggle span:before,
+            #nav-toggle span:after {
+                cursor: pointer;
+                border-radius: 1px;
+                height: 3px;
+                width: 25px;
+                background: #A0A0A0;
+                position: absolute;
+                display: block;
+                content: '';
+            }
+
+            #nav-toggle span:before {
+                top: -6px;
+            }
+
+            #nav-toggle span:after {
+                bottom: -6px;
+            }
+
+            #nav-toggle span,
+            #nav-toggle span:before,
+            #nav-toggle span:after {
+                transition: all 200ms ease-in-out;
+            }
+
+            #nav-toggle.active span {
+                /*background-color: transparent;*/
+            }
+
+            #nav-toggle.active span:before,
+            #nav-toggle.active span:after {
+            }
+
+            #nav-toggle.active span:before {
+
+            }
+
+            #nav-toggle.active span:after {
+
+            }
+            /* Off Canvas Navigation */
+
+            main {
+                width: 100%;
+                /*position: absolute;*/
+                left: 0;
+                /*top:0;  */
+                transition: .3s ease all;
+            }
+
+            aside {
+                width: 250px;
+                height: 100%;
+                position: fixed;
+                top: 0;
+                left: -250px;
+                background: #F2F2F2;
+                font-size: .8em;
+                font-family: sans-serif;
+                font-weight: 300;
+                transition: all .3s ease;
+
+            }
+
+            aside p {
+                color: #F5F5F5;
+                padding: 10px;
+
+            }
+
+            aside nav ul {
+                z-index: 0;
+                margin: 0;
+                padding: 0;
+            }
+
+            aside nav ul li:first-of-type {
+                /*border-top: 1px solid #565656;*/
+            }
+
+            aside nav ul li {
+                /*border-bottom: 1px solid #565656;*/
+            }
+
+            aside nav ul li a {
+
+                padding: 10px 20px;
+                display: block;
+                color: #404040;
+                text-decoration: none;
+            }
+
+            aside nav ul li a:hover {
+
+                background: #E8E8E8;
+            }
+            /* JavaScript toggle */
+
+            .show-nav aside{
+                transform: translateX(250px);           
+
+            }        
+            .show-nav main {
+                transform: translateX(250px);
+
+
+
+            }
+            .show-nav .position {
+                position: fixed;
+            }
+
+            .show-nav article {
+                /*padding: 0 80px;*/
+            }
+
+            a {
+                text-decoration: none;
+                color: #6699cc;
+            }
+
+            a:hover {
+                /*text-decoration: underline;*/
+            }
+            #map {
+                
+                height: 600px;
+                width: auto;
+
+
+            }
+            
+            #cont{
+                padding: 30px;
+                background-color: #FAFAFA;
+                margin-top: 69px;
+                
+            }
+
+
