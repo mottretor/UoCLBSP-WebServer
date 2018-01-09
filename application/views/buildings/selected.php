@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="jquery.js"></script>
     <script src="css/boostrap.js"></script>
+<!--    <script src="Scripts/jquery-2.1.0.min.js"></script>-->
     <link herf="css/boostrap.css" rel="stylesheet"/>
 </head>
 
@@ -19,8 +20,10 @@
             <input type="text" name="name" value="<?php echo $name ?>">
             <input type="hidden" name="id" value="<?php echo $id ?>">
         </form>
-        <form method="post" action="index.php/Manage_building/delete_building">
+        <form method="post" action="<?php echo base_url()?>index.php/Manage_building/delete_building">
             <input type="submit" name="delete" value="Delete">
+            <input type="text" name="name" value="<?php echo $name ?>">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
         </form>
     </div>
 </body>

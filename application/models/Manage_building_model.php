@@ -10,7 +10,7 @@ class Manage_building_model extends CI_Model
 
     public function selected($datasearch1)
     {
-        var_dump($datasearch1);
+//        var_dump($datasearch1);
         if (isset($_POST['name'])) {
 //            echo 'poo';
             $id = $_POST['id'];
@@ -59,7 +59,7 @@ class Manage_building_model extends CI_Model
                 'longitudes' => $rows['longitudes'],
                 'graph_id' => $rows['graph_id']
             );
-            var_dump($data2);
+//            var_dump($data2);
 
             $this->load->view('buildings/edit', $data2);
         }
@@ -67,7 +67,7 @@ class Manage_building_model extends CI_Model
 
     public function change($datasearch3)
     {
-        var_dump($datasearch3);
+//        var_dump($datasearch3);
         if (isset($_POST['name'])) {
 //            echo 'poo';
             $id = $_POST['id'];
@@ -80,6 +80,16 @@ class Manage_building_model extends CI_Model
                 'graph_id' => $_POST['graphId']
             );
             $this->db->where('id', $id)->update('building', $data3);
+        }
+    }
+
+    public function delete($datasearch4)
+    {
+        if (isset($_POST['name'])) {
+//            echo 'poo';
+            $id = $_POST['id'];
+            $this->db->where('id', $id)->delete('building');
+
         }
     }
 }

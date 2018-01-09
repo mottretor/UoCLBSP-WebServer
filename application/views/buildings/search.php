@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div style="width: 100%; height: 90%; float: bottom">
 
     <div style="width: 25%;  height:100%; float: left; background-color: #343434">
-        <form method="post" action="index.php/Manage_building/search_building">
+        <form method="post" action="<?php echo base_url()?>index.php/Manage_building/search_building">
             <table>
                 <tr>
                     <td>

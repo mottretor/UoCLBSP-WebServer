@@ -55,7 +55,7 @@ class Manage_building extends CI_Controller
             'name' => $this->input->post('name'),
             'id' => $this->input->post('id'),
         );
-        var_dump($datasearch2);
+//        var_dump($datasearch2);
 
 //        $this->load->view('buildings/edit', $datasearch2);
 
@@ -74,11 +74,22 @@ class Manage_building extends CI_Controller
             'graph_id' => $this->input->post('graphId'),
             'id' => $this->input->post('id'),
         );
-        var_dump($datasearch3);
+//        var_dump($datasearch3);
 
         $this->manage_building_model->change($datasearch3);
 
 //        $this->load->view('buildings/edit');
+    }
+
+    public function delete_building()
+    {
+        $this->load->model('manage_building_model');
+
+        $datasearch4 = array(
+            'id' => $this->input->post('id'),
+        );
+
+        $this->manage_building_model->delete($datasearch4);
     }
 
 }
