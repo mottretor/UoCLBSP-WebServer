@@ -19,7 +19,7 @@
                     <li><a  data-target="Admin_home/add_road"><i class="fas fa-map-signs"></i><div class="list-item">Paths</div></a></li>
                     <li><a  data-target="Manage_building/building"><i class="fas fa-building"></i><div class="list-item">Buildings</div></a></li>
                     <li><a  data-target="Manage_rooms/rooms"><i class="fas fa-columns"></i><div class="list-item">Rooms</div></a></li>
-                    <li><a  data-target="Manage_room_types/room_types"><i class="fas fa-tags"></i><div class="list-item">Room Types</div></a></li>
+                    <li><a  data-target="Manage_room_types/room_type"><i class="fas fa-tags"></i><div class="list-item">Room Types</div></a></li>
                     <li><a  data-target="Manage_people/people"><i class="fas fa-user"></i><div class="list-item">People</div></a></li>
                 </ul>
 

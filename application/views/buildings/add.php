@@ -93,6 +93,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var buildingLat;
             var buildingLng;
             var graph_id;
+            var building;
 
             function initMap() {
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -196,7 +197,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
 
             function setAsBuilding(eve) {
-                var building = new google.maps.Marker({
+                if(building!=null){
+                    building.setMap(null);
+                }
+                building = new google.maps.Marker({
                     position: eve.latLng,
                     map: map,
                 });
