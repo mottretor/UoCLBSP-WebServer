@@ -24,6 +24,7 @@
             $(document).ready(function () {
                 var trigger = $('#nav ul li a'),
                         contain = $('#cont');
+
                 
                 trigger.on('click', function () {
                     var $this = $(this),
