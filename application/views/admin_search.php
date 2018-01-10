@@ -44,6 +44,10 @@
     // This example requires the Places library. Include the libraries=places
     // parameter when you first load the API. For example:
     // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+    var finalPath;
+    var markerA;
+    var markerB;
+    
     function initMap() {
         window.map = new google.maps.Map(document.getElementById('map'), {
             mapTypeControl: true,
@@ -321,7 +325,10 @@
                     // });
 
                     if(newPath.steps.length>0){
-                        var finalPath = new google.maps.Polyline({
+                        if(finalPath!=null){
+                            finalPath.setMap(null);
+                        }
+                        finalPath = new google.maps.Polyline({
                             path: newPath.steps,
                             geodesic: true,
                             strokeColor: 'blue',
@@ -332,13 +339,19 @@
                         //drawing the final received path on the map
                         finalPath.setMap(window.map);
                         //putting two markers on origin and destination
-                        var markerA = new google.maps.Marker({
+                        if(markerA!=null){
+                            markerA.setMap(null);
+                        }
+                        if(markerB!=null){
+                            markerB.setMap(null);
+                        }
+                        markerA = new google.maps.Marker({
                             position: {lat: newPath.steps[0]['lat'], lng: newPath.steps[0]['lng']},
                             map: window.map,
                             animation: google.maps.Animation.DROP,
                             label:"A"
                         });
-                        var markerB = new google.maps.Marker({
+                        markerB = new google.maps.Marker({
                             position: {lat: newPath.steps[newPath.steps.length-1]['lat'], lng: newPath.steps[newPath.steps.length-1]['lng']},
                             map: window.map,
                             animation: google.maps.Animation.DROP,
