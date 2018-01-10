@@ -17,7 +17,7 @@
         <aside>            
             <nav id="nav">
                 <ul>
-                    <li><a  data-target="Admin_home/add_polygon"><i class="fas fa-home" ></i><div class="list-item">Home</div></a></li>
+                    <li><a  data-target="Admin_home/search"><i class="fas fa-home" ></i><div class="list-item">Home</div></a></li>
                 </ul>
                 <p >Manage Map</p>
                 <ul>                    
@@ -41,11 +41,11 @@
 
         <header>
             <div class="container">
-                <img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px">
+            <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
             </div>
         </header>
         <main>
-            <div id="cont" >
+            <div id="cont">
             </div>
         </main>
     </body>
