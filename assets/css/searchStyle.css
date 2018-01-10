@@ -1,12 +1,3 @@
-#map {
-    height: 100%;
-    z-index: initial;
-}
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 .controls {
     margin-top: 10px;
     border: 4px solid transparent;

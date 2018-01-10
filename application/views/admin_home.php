@@ -7,6 +7,11 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/fontawesome-all.css" >
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
         <script type = 'text/javascript' src = "<?php echo base_url(); ?>/assets/js/admin_panel.js"></script>
+        <script> 
+    $(function(){
+      $("#cont").load("Admin_home/search"); 
+    });
+    </script> 
     </head>
     <body>
         <aside>            

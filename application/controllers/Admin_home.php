@@ -24,5 +24,9 @@ class Admin_home extends CI_Controller
     {
         $this->load->view('people/add');
     }
+    
+    public function search(){
+        $this->load->view('admin_search');
+    }
 
 }
