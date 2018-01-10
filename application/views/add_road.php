@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 requestMap.onload = function () {
                     var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
                     var data = requestMap.response;
-                    alert(data);
+                    // alert(data);
                     maparray = JSON.parse(data);
 
                     // //alert(dataPoly);
@@ -116,8 +116,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 scale: 4,
                                 strokeWeight:2,
                                 fillOpacity: 0.6,
-                                fillColor: "#2471A3",
-                                strokeColor:"#008B8B"
+                                fillColor: "#C0392B",
+                                strokeColor:"#C0392B"
                             },
                         });
                         sourcemark.addListener('click', pointone);
@@ -129,7 +129,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         var destid = graphArray[z].edges[k]["destination"];
                         var graphline = new google.maps.Polyline({
                             path: [graphVertexes[sourceid], graphVertexes[destid]],
-                            strokeColor: 'white',
+                            strokeColor: '#F1948A',
                             strokeOpacity: 1.0,
                             strokeWeight: 5
                         });
@@ -161,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var path = new google.maps.Polyline({
                         path: [startingPoint, endPoint],
                         // geodesic: true,
-                        strokeColor: 'blue',
+                        strokeColor: '#C0392B',
                         strokeOpacity: 1.0,
                         strokeWeight: 5
                     });
@@ -197,8 +197,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             scale: 4,
                             strokeWeight:2,
                             fillOpacity: 0.6,
-                            fillColor: "#2471A3",
-                            strokeColor:"#008B8B"
+                            fillColor: "#C0392B",
+                            strokeColor:"#C0392B"
                         },
                     });
                     sourcemark.addListener('click', pointone);
@@ -206,7 +206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var path = new google.maps.Polyline({
                         path: [startingPoint, endPoint],
                         // geodesic: true,
-                        strokeColor: 'blue',
+                        strokeColor: '#C0392B',
                         strokeOpacity: 1.0,
                         strokeWeight: 5
                     });
@@ -229,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 var finalJson = {};
                 finalJson['type'] = "addPaths";
                 finalJson['Changes'] = resultJson;
-                alert(JSON.stringify(finalJson));
+                // alert(JSON.stringify(finalJson));
 
 //                var urlPoly = "http://localhost:1978";
                 var urlPoly = "http://localhost:1978";
@@ -241,7 +241,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 requestMap.onload = function () {
                     var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
                     var data = requestMap.response;
-                    alert(data);
+                    // alert(data);
                 }
                 requestMap.open(method, urlPoly, shouldBeAsync);
                 requestMap.send(mapData);
