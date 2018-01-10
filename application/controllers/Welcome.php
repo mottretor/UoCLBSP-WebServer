@@ -8,7 +8,7 @@ class Welcome extends CI_Controller {
 //	}
     public function index()
     {
-        $this->load->view('rooms/search');
+        $this->load->view('admin_search');
     }
 //
 //    public function index()

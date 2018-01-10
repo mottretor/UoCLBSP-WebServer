@@ -36,7 +36,6 @@
                         method: 'GET',
                         success: function (data) {
                             contain.html(data);
-                            
 
                             // Toggle navigation
                             // $('#nav-toggle').click(function () {
