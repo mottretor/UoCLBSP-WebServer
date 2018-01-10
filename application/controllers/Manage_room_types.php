@@ -23,6 +23,7 @@ class Manage_room_types extends CI_Controller
         );
 
         $this->manage_room_types_model->add($data);
+        redirect('admin_home');
     }
 
     public function search_room_type()

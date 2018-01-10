@@ -25,6 +25,7 @@ class Manage_people extends CI_Controller
         );
 
         $this->manage_people_model->add($data);
+        redirect('admin_home');
 //        redirect(base_url() . 'index.php/Admin_home/buildings');
 
 //        $this->load->model('manage_building_model');

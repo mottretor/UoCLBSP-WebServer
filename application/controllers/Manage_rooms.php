@@ -25,6 +25,7 @@ class Manage_rooms extends CI_Controller
         );
 
         $this->manage_rooms_model->add($data);
+        redirect('admin_home');
     }
 
     public function search_room()

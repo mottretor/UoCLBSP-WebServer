@@ -25,7 +25,7 @@ class Manage_building extends CI_Controller
         );
 
         $this->manage_building_model->add($data);
-//        redirect($this);
+        redirect('admin_home');
 
 //        $this->load->model('manage_building_model');
 //        $this->manage_building_model->add();
