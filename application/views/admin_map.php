@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         id: graphArray[z].id,
                         icon: {
                             path: google.maps.SymbolPath.CIRCLE,
-                            scale: 2,
+                            scale: 1,
                             strokeWeight: 2,
                             fillOpacity: 0.6,
                             fillColor: "white",
@@ -199,7 +199,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 id: this.id,
                 icon: {
                     path: google.maps.SymbolPath.CIRCLE,
-                    scale: 2,
+                    scale: 1,
                     strokeWeight: 2,
                     fillOpacity: 0.6,
                     fillColor: "white",
