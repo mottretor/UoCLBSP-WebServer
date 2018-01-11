@@ -53,7 +53,7 @@
             mapTypeControl: true,
             zoom: 16,
             center: {lat: 6.9022, lng: 79.8607},
-            gestureHandling: 'cooperative'
+            gestureHandling: 'greedy',
         });
         var originInput = document.getElementById('origin-input');
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
