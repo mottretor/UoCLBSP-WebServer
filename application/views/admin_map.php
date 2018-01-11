@@ -35,6 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 6.901120, lng: 79.860532},
+            gestureHandling: 'greedy',
             zoom: 17
         });
 
