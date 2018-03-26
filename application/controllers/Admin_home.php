@@ -8,7 +8,7 @@ class Admin_home extends CI_Controller
     }
 
     public function add_polygon(){
-        $this->load->view('add_polygon');
+        $this->load->view('add_geofence');
     }
 
     public function add_road(){
