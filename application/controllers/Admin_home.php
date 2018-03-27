@@ -27,6 +27,9 @@ class Admin_home extends CI_Controller
     
     public function search(){
         $this->load->view('admin_map');
+
+
+
     }
 
 }
