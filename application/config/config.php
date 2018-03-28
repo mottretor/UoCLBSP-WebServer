@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url'] = 'http://ec2-52-72-156-17.compute-1.amazonaws.com/UoCMaps/';
+
 $config['base_url'] = getenv('URL_BASE');
 $config{'server_url'}=getenv('URL_MAP_SERVER');
 
