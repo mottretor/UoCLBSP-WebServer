@@ -1,0 +1,13 @@
+language: php
+php:
+  - 7.0
+services:
+  - mysql
+before_install:
+  - mysql -e 'create database test'
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - nvm install 5.10.1
+before_script:
+  - gulp build
+script: vendor/bin/phpunit
