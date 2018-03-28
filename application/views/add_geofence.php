@@ -26,7 +26,7 @@
                     center: {lat: 6.902215976621638, lng: 79.86069999999995}
                 });
 
-                var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+                var urlPoly = "<?php echo base_url(); ?>:1978";
                 var method = "POST";
                 var mapData = JSON.stringify({"type": "polyRequest"});
                 var shouldBeAsync = true;
@@ -154,7 +154,7 @@
                     jsonObj['outvertexes'] = outArray;
                     alert(JSON.stringify(jsonObj));
 
-                    var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+                    var urlPoly = "<?php echo base_url(); ?>:1978";
                     var method = "POST";
                     var mapData = JSON.stringify(jsonObj);
                     var shouldBeAsync = true;
