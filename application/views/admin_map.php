@@ -37,7 +37,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             center: {lat: 6.901120, lng: 79.860532},
             gestureHandling: 'greedy',
             zoom: 17
+
         });
+
+
 
         map.addListener('dblclick', sendData);
 
@@ -263,9 +266,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
     }
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC564I5ucBK7bdyzJvVzTeG_AuPlubn3kY&libraries=geometry&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=geometry&callback=initMap"
         async defer></script>
+
+
+
+
 
 
 

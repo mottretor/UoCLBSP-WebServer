@@ -29,7 +29,6 @@ class Admin_home extends CI_Controller
         $this->load->view('admin_map');
 
 
-
     }
 
 }
