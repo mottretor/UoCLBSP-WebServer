@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/UoCLBSP-WebServer/assets/css/admin_styles.css" >
 
 </head>
 <>

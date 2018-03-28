@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/UoCLBSP-WebServer/assets/css/admin_styles.css" >
 
     </head>
     <body>
@@ -25,6 +25,56 @@
                     gestureHandling: 'greedy',
                     center: {lat: 6.902215976621638, lng: 79.86069999999995}
                 });
+
+                var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+                var method = "POST";
+                var mapData = JSON.stringify({"type": "polyRequest"});
+                var shouldBeAsync = true;
+                var requestMap = new XMLHttpRequest();
+
+                requestMap.onload = function () {
+                    var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
+                    var data = requestMap.response;
+
+                    maparray = JSON.parse(data);
+
+                    // //alert(dataPoly);
+                    polyArray = maparray.polygons;
+                    graphArray = maparray.graphs;
+                    loadmap();
+                    line = [];
+                    temp = [];
+                    flag = 0;
+                    source = [];
+                    cestination = [];
+                    // var verticelatlng = [];
+                    // var verticepos = [];
+
+                    for (var i = 0; i < polyArray.length; i++) {
+                        path = [];
+                        // graph = [];
+                        var polyObject = polyArray[i].vertexes;
+
+                        // alert(JSON.stringify(polyObject));
+                        var polydraw = new google.maps.Polygon({
+                            paths: polyObject,
+                            strokeColor: '#F1C40F',
+                            strokeOpacity: 0.8,
+                            strokeWeight: 3,
+                            fillColor: '#F1F3A7',
+                            fillOpacity: 0.35,
+                            id: polyArray[i].id
+                        });
+                        polydraw.setMap(map);
+                        // polydraw.addListener('click', pointtwo);
+                        outJSON[polyArray[i].id] = [];
+                        polyindex.push(polyArray[i].id);
+                        // newpoint.addListener('click', pointone);
+                    }
+                    //                    alert(data);
+                }
+                requestMap.open(method, urlPoly, shouldBeAsync);
+                requestMap.send(mapData);
 
                 poly = new google.maps.Polyline({
                     strokeColor: '#000000',
@@ -103,6 +153,23 @@
                 if (state == 2) {
                     jsonObj['outvertexes'] = outArray;
                     alert(JSON.stringify(jsonObj));
+
+                    var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+                    var method = "POST";
+                    var mapData = JSON.stringify(jsonObj);
+                    var shouldBeAsync = true;
+                    var requestMap = new XMLHttpRequest();
+                    var data;
+                    requestMap.onload = function () {
+                        var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
+                        var data = requestMap.response;
+                        $(function () {
+                            $("#cont").load("Admin_home/add_polygon");
+                        });
+                        // alert(data);
+                    }
+                    requestMap.open(method, urlPoly, shouldBeAsync);
+                    requestMap.send(mapData);
 
                 }
             }
