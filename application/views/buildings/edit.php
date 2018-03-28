@@ -177,7 +177,7 @@
                 // Onload handler to fire off the app.
                 google.maps.event.addDomListener(window, 'load', initialize);
             </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuVuyPajdEVimNlE-ejFP3_ca3dRNHLT4&libraries=places&callback=initMap"
+            <script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=places&callback=initMap"
                     async defer></script>
 
         </head>

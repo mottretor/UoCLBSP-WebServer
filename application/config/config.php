@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 //$config['base_url'] = 'http://ec2-52-72-156-17.compute-1.amazonaws.com/UoCMaps/';
 $config['base_url'] = getenv('URL_BASE');
+$config{'server_url'}=getenv('URL_MAP_SERVER');
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ $config['index_page'] = 'index.php';
 */
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['api_key']=getenv('KEY_GOOGLE_MAP_API');
-$config{'server_url'}=getenv('URL_MAP_SERVER');
+
 
 /*
 |--------------------------------------------------------------------------
