@@ -131,8 +131,6 @@
                     polygon.addListener('click', pickExits);
                     state = 1;
                 }
-
-
             }
 
             function pickExits(event) {
@@ -152,6 +150,7 @@
             function sendData(event) {
                 if (state == 2) {
                     jsonObj['outvertexes'] = outArray;
+                    jsonObj['type'] = "geofence";
                     alert(JSON.stringify(jsonObj));
 
                     var urlPoly = "<?=$this->config->item('server_url');?>";
@@ -170,7 +169,6 @@
                     }
                     requestMap.open(method, urlPoly, shouldBeAsync);
                     requestMap.send(mapData);
-
                 }
             }
 

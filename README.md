@@ -1,5 +1,7 @@
 ## UOC Location Based Service Platform - Web Server
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6d271fd385c74445950da430872d1c9f)](https://www.codacy.com/app/JHWimalasiri/UoCLBSP-WebServer?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CKEdiriweera/UoCLBSP-WebServer&amp;utm_campaign=Badge_Grade)
+
 >UOC Location Based Platform - Web server integrated with Codeigniter enables users to customize maps on top of Google maps
 
 ## Configuration
