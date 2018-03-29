@@ -10,7 +10,7 @@ class Manage_people extends CI_Controller
 {
     public function people()
     {
-        $this->load->view('people/add');
+        $this->load->view('people/add_people');
     }
 
     public function add_people()

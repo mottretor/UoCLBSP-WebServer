@@ -32,7 +32,7 @@ class Manage_building_model extends CI_Model
             );
 //            var_dump($data2);
 
-            $this->load->view('buildings/selected', $data2);
+            $this->load->view('buildings/selected_building', $data2);
         }
     }
 
@@ -61,7 +61,7 @@ class Manage_building_model extends CI_Model
             );
 //            var_dump($data2);
 
-            $this->load->view('buildings/edit', $data2);
+            $this->load->view('buildings/edit_building', $data2);
         }
     }
 

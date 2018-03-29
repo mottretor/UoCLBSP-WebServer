@@ -10,7 +10,7 @@ class Manage_rooms extends CI_Controller
 {
     public function rooms()
     {
-        $this->load->view('rooms/add');
+        $this->load->view('rooms/add_room');
     }
 
     public function add_room()

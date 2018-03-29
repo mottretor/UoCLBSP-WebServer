@@ -10,7 +10,7 @@ class Manage_building extends CI_Controller
 
     public function building()
     {
-        $this->load->view('buildings/add');
+        $this->load->view('buildings/add_building');
     }
 
     public function add_building()

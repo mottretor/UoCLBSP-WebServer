@@ -33,7 +33,7 @@ class Manage_room_types_model extends CI_Model
             );
 //            var_dump($data2);
 
-            $this->load->view('room_types/selected', $data2);
+            $this->load->view('room_types/selected_room_type', $data2);
         }
     }
 
@@ -59,7 +59,7 @@ class Manage_room_types_model extends CI_Model
             );
 //            var_dump($data2);
 
-            $this->load->view('room_types/edit', $data2);
+            $this->load->view('room_types/edit_room_type', $data2);
         }
     }
 
