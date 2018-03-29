@@ -1,7 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
-
 <html>
     <head>    
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/form.css">
