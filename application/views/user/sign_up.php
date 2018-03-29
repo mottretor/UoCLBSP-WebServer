@@ -1,5 +1,6 @@
 <html>
 <head>
+    <title>Sign Up</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/user_style.css">
     <style>
         #form-div{
