@@ -8,6 +8,8 @@ class Welcome extends CI_Controller {
 //	}
     public function index()
     {
+        $data["call"] = False;
+        $this->load->view('include/header',$data);
         $this->load->view('admin_search');
     }
 //

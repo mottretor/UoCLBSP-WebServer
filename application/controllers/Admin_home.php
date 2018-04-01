@@ -4,9 +4,13 @@ class Admin_home extends CI_Controller
 {
     public function index()
     {
-        $this->load->view('admin_home');
-//        $this->load->view('admin_search');
+        $data["call"] = True;
+        $this->load->view('include/header',$data);
+        $this->load->view('include/side_navbar');
+        //$this->load->view('admin_home');
+
     }
+
 
     public function add_polygon(){
         $this->load->view('add_geofence');
