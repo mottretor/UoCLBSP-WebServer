@@ -3,6 +3,7 @@
 
 <head>
     <title>UoC Maps</title>
+    <meta name="google-signin-client_id" content="<?=$this->config->item('api_key');?>.apps.googleusercontent.com">
     <link href="<?php echo base_url(); ?>/assets/drawable/favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/fontawesome-all.css" >
@@ -17,6 +18,7 @@
     </script>';
     }
     ?>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body>
 
@@ -25,8 +27,11 @@
 
 <header>
            <div class="container">
-          <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
-         </div>
+                   <div>
+                       <a style="float: left;"data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
+                   </div>
+                   <div style="float: left;" class="g-signin2" data-onsuccess="onSignIn"></div>
+                   </div>
 </header>
 
 
