@@ -30,12 +30,13 @@ class Admin_home extends CI_Controller
         $this->load->view('people/add_people');
     }
     
-    public function search(){
+    public function search()
+    {
         $this->load->view('admin_map');
     }
 
     public function test(){
-        $this->load->view('user/auth');
+        $this->load->view('test');
     }
 
 }

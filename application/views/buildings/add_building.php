@@ -4,7 +4,22 @@
     </head>
 
     <body>
-        
+        <?php
+        ini_set('display_errors', 1);
+//        echo "kshffsdsdgdfdfhdfhfddfhdh";
+        //convert the stdClass Object into a php array
+        foreach($result as $key => $data){
+            $building_array[$key] = (array)$data;
+        }
+        $building_json = json_encode($building_array);
+//        var_dump($building_json);
+
+//        $json_building = json_encode((array)$building_array);
+//        print_r($building_array[0]['latitudes']);
+
+//        $building_array = json_decode(json_encode($result), true);
+        ?>
+
         <div id="form-div">
             <div id="title-div">
                 <p>Add Building</p></div>
@@ -60,11 +75,7 @@
                     <input class="button" type="reset" name="reset" value="Reset">
 
                 </form>
-
-           
         </div>
-
-
 
         <div id="map"></div>
         <script>
@@ -97,6 +108,41 @@
                     gestureHandling: 'greedy',
                     zoom: 16
                 });
+                // alert('kjadfdane');
+
+                var buildings = <?php echo $building_json; ?>;
+                buildings = JSON.parse(JSON.stringify(buildings));
+                // alert(buildings);
+
+                for(var a = 0; a < buildings.length; a++)
+                {
+                    var lat = buildings[a]['latitudes'];
+                    // alert(lat);
+                    // alert('ksahdusfgu');
+                    var lng = buildings[a]['longitudes'];
+
+                    var building_marker = new google.maps.Marker({
+                        position: {'lat': parseFloat(lat), 'lng': parseFloat(lng)},
+                        map: map
+                    });
+                }
+
+                //var building_array = "<?php //json_encode($result)?>//";
+                //JSON.parse(building_array);
+                //alert(building_array);
+
+                //for(var a = 0; a < building_array.length; a++)
+                //{
+                //    // var lat = building_array[a].latitudes;
+                //    // var lng = building_array[a].longitudes;
+                //    alert('kdasdh');
+                //
+                //    var building_marker = new google.maps.Marker({
+                //        position: <?php //$building_array[a] ?>//,
+                //        map: map
+                //    });
+                //}
+                // alert(building_array);
 
                 map.addListener('dblclick', sendData);
 
@@ -235,8 +281,6 @@
                 }
                 requestMap.open(method, urlPoly, shouldBeAsync);
                 requestMap.send(mapData);
-
-
             }
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=geometry&callback=initMap"

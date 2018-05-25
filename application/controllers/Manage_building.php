@@ -2,15 +2,33 @@
 
 class Manage_building extends CI_Controller
 {
-
     public function index()
     {
-        echo "fgsfdgdfgdf";
+        $this->load->view('test');
+    }
+
+    // public function __construct(){
+    //     parent:: __construct();
+    //     $this->load->model('Manage_building_model', 'building');
+    // }
+
+    public function test()
+    {
+
     }
 
     public function building()
     {
-        $this->load->view('buildings/add_building');
+        // $result = $this->building->display_buildings();
+        // if(!empty($result)){
+        //     $data4['buildings'] =$result;
+        //     $this->load->view('buildings/add_building', $data4);
+        // }
+        $this->load->model('manage_building_model');
+        $buildings['result'] = $this->manage_building_model->display_buildings();
+//        var_dump($buildings);
+
+        $this->load->view('buildings/add_building', $buildings);
     }
 
     public function add_building()
@@ -23,12 +41,8 @@ class Manage_building extends CI_Controller
             'longitudes' => $this->input->post('longitudes'),
             'graph_id' => $this->input->post('graphId')
         );
-
         $this->manage_building_model->add($data);
         redirect('admin_home');
-
-//        $this->load->model('manage_building_model');
-//        $this->manage_building_model->add();
     }
 
     public function search_building()
