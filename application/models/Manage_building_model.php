@@ -6,29 +6,11 @@ class Manage_building_model extends CI_Model
     {
         $query = $this->db->select('latitudes, longitudes')->from('building')->get();
         return $query->result();
-
-    //     $query = $this->db->select('*')->from('building')->get();
-    //     // $rows = $query->row_array();
-    //     // $data4 = array(
-    //     //     'lat' => $rows['latitudes'],
-    //     // );
-    //     // $this->load->view('test', $data4);
-
-    //     // return $query->result();
-//         if($query->num_rows() > 0){
-//             foreach ($query->result() as $row)
-//             {
-//                $data[] = $row;
-//             }
-//            return $data;
-//        }
-    // //    var_dump($data)
     }
    
     public function add($data)
     {
         return $this->db->insert('building', $data);
-
     }
 
     public function selected($datasearch1)

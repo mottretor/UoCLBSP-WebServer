@@ -1,10 +1,9 @@
 <html>
 <style type="text/css">
     .heading {
-        color : #fff;
+        color : #000;
         font-family: sans-serif;
         text-align: center;
-
     }
 </style>
 <head>
@@ -34,9 +33,6 @@
 
 <button type="button" onclick="getDirections()" id="search-button" class="btn btn-default">Get Directions</button>
 
-
-
-
 <div id="map"></div>
 
 <script>
@@ -65,8 +61,8 @@
     //ORIGIN****************************************************
     //search part
     $('#origin-input').keyup(function(){
-        var searchValue=$(this).val();
-        //alert(searchValue);
+        var searchValue=$(this).val(); //sends the letters/phrases that are typed in the text field to the server
+        // alert(searchValue);
         //Getting two places from the search bars Origin and Destination
         //search results are retrieved from the java server
         var getPlaces = {"type":"searchRequest","input":searchValue,"role":"registered"};
@@ -83,12 +79,13 @@
         //on success
         requestPlaces.onload = function () {
             var status = requestPlaces.status;
-            var data = requestPlaces.response;
-            //alert(data);
+            var data = requestPlaces.response; // gets the search results from the server for autocomplete suggesting
+            // alert(data);
             //var datax = '{"Results":[{"lng":80.01436559999999,"name":"Gampaha","lat":7.0873101},{"lng":80.564677,"name":"Gampola","lat":7.126777},{"lng":79.9937034,"name":"Gampaha Railway Station","lat":7.093542999999999},{"lng":79.99173739999999,"name":"Gampaha Bus Station","lat":7.092380399999999},{"lng":79.8976314,"name":"Gamsabha Junction Bus Stop","lat":6.864619100000001}]}';
             //alert(status);
             var results = JSON.parse(data);
             window.resultsO = results;
+            // alert(results);
             var places=[];
             window.placeLats=[];
             var nameX;
@@ -104,6 +101,7 @@
                 option.value = item;
                 list.appendChild(option);
             });
+            // alert(list);
         }
         requestPlaces.open(method, urlPlaces, shouldBeAsync);
         requestPlaces.send(placesData);
@@ -133,6 +131,7 @@
             //alert(status);
             var results = JSON.parse(data);
             window.resultsD = results;
+            // alert(results);
             var places=[];
             window.placeLatsD=[];
             var nameX;

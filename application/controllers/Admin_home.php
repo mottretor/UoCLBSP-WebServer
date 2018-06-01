@@ -39,7 +39,7 @@ class Admin_home extends CI_Controller
     }
 
     public function test2(){
-        $this->load->view('nearby_search');
+        $this->load->view('admin_search');
     }
 
 }
