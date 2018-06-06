@@ -4,7 +4,7 @@ class Nearby_search extends CI_Controller
 {
     function test()
     {
-        $this->load->model('Nearby_search_model');
+        $this->load->model('nearby_search_model');
         $this->nearby_search_model->test();
     }
 
@@ -31,6 +31,7 @@ class Nearby_search extends CI_Controller
 
     function get_nearby_places()
     {
+//        echo 'lduisd';
         if (isset($_POST['source_name'])) {
 //            echo 'poo';
 
@@ -41,12 +42,16 @@ class Nearby_search extends CI_Controller
                 'lng1' => $this->input->post('source_lng'),
                 'type' => $this->input->post('room_type'),
             );
-            $this->nearby_search_model->search_nearby_places($data);
-
+            $room_array = $this->nearby_search_model->search_nearby_places($data);
+//            $this->display_nearby_places($room_array);
+            //alert('kf');
+            $this->load->view('nearby_search_display', $room_array);
         }
-
-//        $this->load->model('nearby_search_model');
-//        $places = $this->nearby_search_model->search_nearby_places();
-//        echo $places;
     }
+
+//    function display_nearby_places($room_array)
+//    {
+//        $this->load->view('nearby_search_display');
+//    }
+
 }

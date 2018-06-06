@@ -7,11 +7,6 @@ class Manage_building extends CI_Controller
         $this->load->view('test');
     }
 
-    // public function __construct(){
-    //     parent:: __construct();
-    //     $this->load->model('Manage_building_model', 'building');
-    // }
-
     public function test()
     {
 
@@ -19,11 +14,6 @@ class Manage_building extends CI_Controller
 
     public function building()
     {
-        // $result = $this->building->display_buildings();
-        // if(!empty($result)){
-        //     $data4['buildings'] =$result;
-        //     $this->load->view('buildings/add_building', $data4);
-        // }
         $this->load->model('manage_building_model');
         $buildings['result'] = $this->manage_building_model->display_buildings();
 //        var_dump($buildings);

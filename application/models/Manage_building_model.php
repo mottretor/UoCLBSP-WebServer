@@ -64,7 +64,7 @@ class Manage_building_model extends CI_Model
                 'longitudes' => $rows['longitudes'],
                 'graph_id' => $rows['graph_id']
             );
-//            var_dump($data2);
+            var_dump($data2);
 
             $this->load->view('buildings/edit_building', $data2);
         }

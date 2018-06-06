@@ -208,19 +208,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             // alert(sourceLng);
             var room_type = document.getElementById('location_type').value;
+            // alert('jmgdgd');
 
-            $.post("<?php echo base_url(); ?>Nearby_search/get_nearby_places",
-                {
-                    source_name: originName,
-                    source_lat: sourceLat,
-                    source_lng: sourceLng,
-                    room_type: room_type,
-                },
-                function(data, status){
-                    alert("Data: " + data + "\nStatus: " + status);
-                });
+            //$.post("<?php //echo base_url(); ?>//Nearby_search/get_nearby_places",
+            //    {
+            //        source_name: originName,
+            //        source_lat: sourceLat,
+            //        source_lng: sourceLng,
+            //        room_type: room_type,
+            //    },
+            //    function(data, status){
+            //        alert("Data: " + data + "\nStatus: " + status);
+            //    }
+            //    );
+
+        $.ajax({
+            url : "<?php echo base_url(); ?>Nearby_search/get_nearby_places",
+            type : "POST",
+            dataType : "application-json",
+            data : {
+                "source_name": originName,
+                "source_lat": sourceLat,
+                "source_lng": sourceLng,
+                "room_type": room_type,
+            },
+            success : function(data) {
+                alert('Hari');
+            },
+            error : function(data) {
+                alert('apo');
+            }
+        });
     }
-
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=geometry&callback=initMap"

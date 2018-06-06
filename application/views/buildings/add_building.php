@@ -12,7 +12,7 @@
             $building_array[$key] = (array)$data;
         }
         $building_json = json_encode($building_array);
-//        var_dump($building_json);
+        var_dump($building_json);
 
 //        $json_building = json_encode((array)$building_array);
 //        print_r($building_array[0]['latitudes']);
