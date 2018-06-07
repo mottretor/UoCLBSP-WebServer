@@ -9,7 +9,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
 
 </head>
-<>
 <div id="map"></div>
 <script>
 

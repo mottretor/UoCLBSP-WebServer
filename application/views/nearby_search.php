@@ -9,13 +9,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
     <link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
-
+<style>
+    input[type=text], select {
+        font-family: "roboto";
+        padding: 12px 12px;
+        margin: 18px 0px 12px 10px;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+</style>
 </head>
 <body>
-<input list="places"  id="origin-input" placeholder="Origin.." style="height:30px;"/>
+<input type="text" class="form-control" list="places"  id="origin-input" placeholder="Origin.." style="width:200px;"/>
 <datalist id="places"></datalist>
-<input type="text" class="form-control" id="location_type" placeholder="Search place" style="width:200px;">
-<button type="button" onclick="getPlace()" id="search_button" class="btn btn-default">Get Directions</button>
+<input type="text" class="form-control" id="location_type" placeholder="Place type.." style="width:200px;">
+<button type="button" onclick="getPlace()" id="search_button" style="margin: 18px 0px 12px 10px;" class="btn btn-default">Search nearby places</button>
 
 <!--<input type="button" id="search_button" value="Search Nearby Locations" style="width:200px;" onclick="getDirections()">-->
 
@@ -31,10 +40,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 </script>
-<!--<input type="text"; id="searchInput"; placeholder="Enter your location"/>-->
-<!--<input type="text"; id="searchType"; placeholder="What do you want to search?"/>-->
 
-<div id="map"></div>
+<div id="main"><div id="map"></div></div>
+
 <script type="text/javascript">
 
     var flag = 0;
@@ -210,35 +218,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             var room_type = document.getElementById('location_type').value;
             // alert('jmgdgd');
 
-            //$.post("<?php //echo base_url(); ?>//Nearby_search/get_nearby_places",
-            //    {
-            //        source_name: originName,
-            //        source_lat: sourceLat,
-            //        source_lng: sourceLng,
-            //        room_type: room_type,
-            //    },
-            //    function(data, status){
-            //        alert("Data: " + data + "\nStatus: " + status);
-            //    }
-            //    );
 
-        $.ajax({
-            url : "<?php echo base_url(); ?>Nearby_search/get_nearby_places",
-            type : "POST",
-            dataType : "application-json",
-            data : {
-                "source_name": originName,
-                "source_lat": sourceLat,
-                "source_lng": sourceLng,
-                "room_type": room_type,
-            },
-            success : function(data) {
-                alert('Hari');
-            },
-            error : function(data) {
-                alert('apo');
-            }
-        });
+            $.post("<?php echo base_url(); ?>Nearby_search/get_nearby_places",
+                {
+                    source_name: originName,
+                    source_lat: sourceLat,
+                    source_lng: sourceLng,
+                    room_type: room_type,
+                },
+                function(data, status){
+                    // alert("Data: " + data + "\nStatus: " + status);
+                    $("#main").html(data);
+                }
+            );
     }
 
 </script>

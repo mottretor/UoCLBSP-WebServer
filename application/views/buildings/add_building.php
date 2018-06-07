@@ -1,290 +1,264 @@
 <html>
-    <head>    
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/form.css">
-    </head>
+<head>
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/form.css">
+</head>
 
-    <body>
-        <?php
-        ini_set('display_errors', 1);
+<body>
+<?php
+ini_set('display_errors', 1);
 //        echo "kshffsdsdgdfdfhdfhfddfhdh";
-        //convert the stdClass Object into a php array
-        foreach($result as $key => $data){
-            $building_array[$key] = (array)$data;
-        }
-        $building_json = json_encode($building_array);
-        var_dump($building_json);
-
+//convert the stdClass Object into a php array
+foreach($result as $key => $data){
+    $building_array[$key] = (array)$data;
+}
+$building_json = json_encode($building_array);
+//        var_dump($building_json);
 //        $json_building = json_encode((array)$building_array);
 //        print_r($building_array[0]['latitudes']);
-
 //        $building_array = json_decode(json_encode($result), true);
-        ?>
+?>
 
-        <div id="form-div">
-            <div id="title-div">
-                <p>Add Building</p></div>
-                </br>
-                <form method="post" action="<?php echo base_url() ?>index.php/manage_building/add_building">
+<div id="form-div">
+    <div id="title-div">
+        <p>Add Building</p></div>
+    </br>
+    <form method="post" action="<?php echo base_url() ?>index.php/manage_building/add_building">
 
-                    <table>
-                        <tr>
-                            <td>
-                                Name :
-                            </td>
-                            <td>
-                                <input type="text" name="name">
-                            </td>
-                        </tr>
+        <table>
+            <tr>
+                <td>
+                    Name :
+                </td>
+                <td>
+                    <input type="text" name="name">
+                </td>
+            </tr>
 
-                        <tr>
-                            <td>
-                                Description :
-                            </td>
-                            <td>
-                                <textarea rows="1.5" cols="30" name="description"></textarea>
-                            </td>
-                        </tr>
+            <tr>
+                <td>
+                    Description :
+                </td>
+                <td>
+                    <textarea rows="1.5" cols="30" name="description"></textarea>
+                </td>
+            </tr>
 
-                        <tr>
-                            <td>
-                                Latitudes :
-                            </td>
-                            <td>
-                                <input type="text" name="latitudes" id="infoLat" value="" readonly="true">
-                            </td>
-                        </tr>
+            <tr>
+                <td>
+                    Latitudes :
+                </td>
+                <td>
+                    <input type="text" name="latitudes" id="infoLat" value="" readonly="true">
+                </td>
+            </tr>
 
-                        <tr>
-                            <td>
-                                Longitudes :
-                            </td>
-                            <td>
-                                <input type="text" name="longitudes" id="infoLng" value="" readonly="true">
-                            </td>
-                        </tr>
+            <tr>
+                <td>
+                    Longitudes :
+                </td>
+                <td>
+                    <input type="text" name="longitudes" id="infoLng" value="" readonly="true">
+                </td>
+            </tr>
 
-                        <tr>
-                            <td>
-                                <input type="hidden" name="graphId" id="graph_id" value="">
-                            </td>
-                        </tr>
+            <tr>
+                <td>
+                    <input type="hidden" name="graphId" id="graph_id" value="">
+                </td>
+            </tr>
 
-                    </table>
+        </table>
 
-                    <input class="button" type="submit" name="add_building" value="Add Building">
-                    <input class="button" type="reset" name="reset" value="Reset">
+        <input class="button" type="submit" name="add_building" value="Add Building">
+        <input class="button" type="reset" name="reset" value="Reset">
 
-                </form>
-        </div>
+    </form>
+</div>
 
-        <div id="map"></div>
-        <script>
-
-            var flag = 0;
-            var line;
-            var source;
-            var map;
-            var mapdata;
-            var maparray;
-            var polyArray;
-            var graphArray;
-            var path, graph, point, newpoint;
-            var temp;
-            var flag;
-            var destination;
-            var polygons = {};
-            var polyid = 0;
-            var startingPoint;
-            var outJSON = {};
-            var polyindex = [];
-            var buildingLat;
-            var buildingLng;
-            var graph_id;
-            var building;
-
-            function initMap() {
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 6.901120, lng: 79.860532},
-                    gestureHandling: 'greedy',
-                    zoom: 16
+<div id="map"></div>
+<script>
+    var flag = 0;
+    var line;
+    var source;
+    var map;
+    var mapdata;
+    var maparray;
+    var polyArray;
+    var graphArray;
+    var path, graph, point, newpoint;
+    var temp;
+    var flag;
+    var destination;
+    var polygons = {};
+    var polyid = 0;
+    var startingPoint;
+    var outJSON = {};
+    var polyindex = [];
+    var buildingLat;
+    var buildingLng;
+    var graph_id;
+    var building;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 6.901120, lng: 79.860532},
+            gestureHandling: 'greedy',
+            zoom: 16
+        });
+        // alert('kjadfdane');
+        var buildings = <?php echo $building_json; ?>;
+        buildings = JSON.parse(JSON.stringify(buildings));
+        // alert(buildings);
+        for(var a = 0; a < buildings.length; a++)
+        {
+            var lat = buildings[a]['latitudes'];
+            // alert(lat);
+            // alert('ksahdusfgu');
+            var lng = buildings[a]['longitudes'];
+            var building_marker = new google.maps.Marker({
+                position: {'lat': parseFloat(lat), 'lng': parseFloat(lng)},
+                map: map
+            });
+        }
+        //var building_array = "<?php //json_encode($result)?>//";
+        //JSON.parse(building_array);
+        //alert(building_array);
+        //for(var a = 0; a < building_array.length; a++)
+        //{
+        //    // var lat = building_array[a].latitudes;
+        //    // var lng = building_array[a].longitudes;
+        //    alert('kdasdh');
+        //
+        //    var building_marker = new google.maps.Marker({
+        //        position: <?php //$building_array[a] ?>//,
+        //        map: map
+        //    });
+        //}
+        // alert(building_array);
+        map.addListener('dblclick', sendData);
+        // mapdata = '{"graphs":[{"vertexes":[{"lng":79.859614,"id":10,"lat":6.903579},{"lng":79.859726,"id":11,"lat":6.90225},{"lng":79.85948,"id":12,"lat":6.902409}],"edges":[{"destination":10,"id":9,"source":12},{"destination":12,"id":11,"source":11}],"id":16}],"polygons":[{"vertexes":[{"lng":79.858825,"lat":6.90357},{"lng":79.86155,"lat":6.903602},{"lng":79.860821,"lat":6.901334},{"lng":79.859147,"lat":6.902622}],"id":16}]}';
+        var urlPoly = "<?=$this->config->item('server_url');?>";
+        var method = "POST";
+        var mapData = JSON.stringify({"type": "mapRequest"});
+        var shouldBeAsync = true;
+        var requestMap = new XMLHttpRequest();
+        requestMap.onload = function () {
+            var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
+            var data = requestMap.response;
+            // alert(data);
+            maparray = JSON.parse(data);
+            // //alert(dataPoly);
+            polyArray = maparray.polygons;
+            graphArray = maparray.graphs;
+            loadmap();
+            line = [];
+            temp = [];
+            flag = 0;
+            source = [];
+            // cestination = [];
+            // var verticelatlng = [];
+            // var verticepos = [];
+            for (var i = 0; i < polyArray.length; i++) {
+                path = [];
+                // graph = [];
+                var polyObject = polyArray[i].vertexes;
+                // alert(JSON.stringify(polyObject));
+                var polydraw = new google.maps.Polygon({
+                    paths: polyObject,
+                    strokeColor: '#aeb20c',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    fillColor: '#eaf01b',
+                    fillOpacity: 0.35,
+                    id: polyArray[i].id
                 });
-                // alert('kjadfdane');
-
-                var buildings = <?php echo $building_json; ?>;
-                buildings = JSON.parse(JSON.stringify(buildings));
-                // alert(buildings);
-
-                for(var a = 0; a < buildings.length; a++)
-                {
-                    var lat = buildings[a]['latitudes'];
-                    // alert(lat);
-                    // alert('ksahdusfgu');
-                    var lng = buildings[a]['longitudes'];
-
-                    var building_marker = new google.maps.Marker({
-                        position: {'lat': parseFloat(lat), 'lng': parseFloat(lng)},
-                        map: map
-                    });
-                }
-
-                //var building_array = "<?php //json_encode($result)?>//";
-                //JSON.parse(building_array);
-                //alert(building_array);
-
-                //for(var a = 0; a < building_array.length; a++)
-                //{
-                //    // var lat = building_array[a].latitudes;
-                //    // var lng = building_array[a].longitudes;
-                //    alert('kdasdh');
-                //
-                //    var building_marker = new google.maps.Marker({
-                //        position: <?php //$building_array[a] ?>//,
-                //        map: map
-                //    });
-                //}
-                // alert(building_array);
-
-                map.addListener('dblclick', sendData);
-
-                // mapdata = '{"graphs":[{"vertexes":[{"lng":79.859614,"id":10,"lat":6.903579},{"lng":79.859726,"id":11,"lat":6.90225},{"lng":79.85948,"id":12,"lat":6.902409}],"edges":[{"destination":10,"id":9,"source":12},{"destination":12,"id":11,"source":11}],"id":16}],"polygons":[{"vertexes":[{"lng":79.858825,"lat":6.90357},{"lng":79.86155,"lat":6.903602},{"lng":79.860821,"lat":6.901334},{"lng":79.859147,"lat":6.902622}],"id":16}]}';
-
-                var urlPoly = "<?=$this->config->item('server_url');?>";
-                var method = "POST";
-                var mapData = JSON.stringify({"type": "mapRequest"});
-                var shouldBeAsync = true;
-                var requestMap = new XMLHttpRequest();
-
-                requestMap.onload = function () {
-                    var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
-                    var data = requestMap.response;
-                    // alert(data);
-                    maparray = JSON.parse(data);
-
-                    // //alert(dataPoly);
-                    polyArray = maparray.polygons;
-                    graphArray = maparray.graphs;
-                    loadmap();
-                    line = [];
-                    temp = [];
-                    flag = 0;
-                    source = [];
-                    // cestination = [];
-                    // var verticelatlng = [];
-                    // var verticepos = [];
-
-                    for (var i = 0; i < polyArray.length; i++) {
-                        path = [];
-                        // graph = [];
-                        var polyObject = polyArray[i].vertexes;
-
-                        // alert(JSON.stringify(polyObject));
-                        var polydraw = new google.maps.Polygon({
-                            paths: polyObject,
-                            strokeColor: '#aeb20c',
-                            strokeOpacity: 0.8,
-                            strokeWeight: 3,
-                            fillColor: '#eaf01b',
-                            fillOpacity: 0.35,
-                            id: polyArray[i].id
-                        });
-
-                        polydraw.setMap(map);
-                        polydraw.addListener('click', setAsBuilding);
-                        outJSON[polyArray[i].id] = [];
-                        polyindex.push(polyArray[i].id);
-                        // newpoint.addListener('click', pointone);
-
-                    }
+                polydraw.setMap(map);
+                polydraw.addListener('click', setAsBuilding);
+                outJSON[polyArray[i].id] = [];
+                polyindex.push(polyArray[i].id);
+                // newpoint.addListener('click', pointone);
+            }
 //                    alert(data);
-                }
-                requestMap.open(method, urlPoly, shouldBeAsync);
-                requestMap.send(mapData);
+        }
+        requestMap.open(method, urlPoly, shouldBeAsync);
+        requestMap.send(mapData);
+    }
+    function loadmap() {
+        flag = 1;
+        for (var z = 0; z < graphArray.length; z++) {
+            var sourcelat, sourcelng, destlat, destlng, sourId;
+            var graphVertexes = {};
+            for (var verti = 0; verti < graphArray[z].vertexes.length; verti++) {
+                sourcelat = graphArray[z].vertexes[verti]["lat"];
+                sourcelng = graphArray[z].vertexes[verti]["lng"];
+                sourId = graphArray[z].vertexes[verti]["id"];
+                var sourcepoint = {'lat': sourcelat, 'lng': sourcelng};
+                // sourcemark = new google.maps.Marker({
+                //     position: sourcepoint,
+                //     map: map,
+                //     id: graphArray[z].id
+                // });
+                // alert(sourcemark.id);
+                // sourcemark.addListener('click', setAsBuilding);
+                graphVertexes[sourId] = sourcepoint;
             }
-
-            function loadmap() {
-                flag = 1;
-                for (var z = 0; z < graphArray.length; z++) {
-                    var sourcelat, sourcelng, destlat, destlng, sourId;
-                    var graphVertexes = {};
-                    for (var verti = 0; verti < graphArray[z].vertexes.length; verti++) {
-                        sourcelat = graphArray[z].vertexes[verti]["lat"];
-                        sourcelng = graphArray[z].vertexes[verti]["lng"];
-                        sourId = graphArray[z].vertexes[verti]["id"];
-                        var sourcepoint = {'lat': sourcelat, 'lng': sourcelng};
-
-                        // sourcemark = new google.maps.Marker({
-                        //     position: sourcepoint,
-                        //     map: map,
-                        //     id: graphArray[z].id
-                        // });
-                        // alert(sourcemark.id);
-                        // sourcemark.addListener('click', setAsBuilding);
-                        graphVertexes[sourId] = sourcepoint;
-                    }
-
-                    for (var k = 0; k < graphArray[z].edges.length; k++) {
-                        var sourceid = graphArray[z].edges[k]["source"];
-                        var destid = graphArray[z].edges[k]["destination"];
-                        var graphline = new google.maps.Polyline({
-                            path: [graphVertexes[sourceid], graphVertexes[destid]],
-                            strokeColor: '#E2E054',
-                            strokeOpacity: 1.0,
-                            strokeWeight: 5
-                        });
-
-                        graphline.setMap(map);
-                        graphline = [];
-                    }//
-                }
-            }
-
-            function setAsBuilding(eve) {
-                if(building!=null){
-                    building.setMap(null);
-                }
-                building = new google.maps.Marker({
-                    position: eve.latLng,
-                    map: map,
+            for (var k = 0; k < graphArray[z].edges.length; k++) {
+                var sourceid = graphArray[z].edges[k]["source"];
+                var destid = graphArray[z].edges[k]["destination"];
+                var graphline = new google.maps.Polyline({
+                    path: [graphVertexes[sourceid], graphVertexes[destid]],
+                    strokeColor: '#E2E054',
+                    strokeOpacity: 1.0,
+                    strokeWeight: 5
                 });
-                document.getElementById('infoLat').setAttribute('value', JSON.stringify(eve.latLng.lat()));
-                document.getElementById('infoLng').setAttribute('value', JSON.stringify(eve.latLng.lng()));
-                document.getElementById('graph_id').setAttribute('value', this.id);
-
-                // alert(graph_id);
+                graphline.setMap(map);
+                graphline = [];
+            }//
+        }
+    }
+    function setAsBuilding(eve) {
+        if(building!=null){
+            building.setMap(null);
+        }
+        building = new google.maps.Marker({
+            position: eve.latLng,
+            map: map,
+        });
+        document.getElementById('infoLat').setAttribute('value', JSON.stringify(eve.latLng.lat()));
+        document.getElementById('infoLng').setAttribute('value', JSON.stringify(eve.latLng.lng()));
+        document.getElementById('graph_id').setAttribute('value', this.id);
+        // alert(graph_id);
+    }
+    function sendData(ev) {
+        var resultJson = [];
+        for (var i = 0; i < polyindex.length; i++) {
+            if (outJSON[polyindex[i]].length > 0) {
+                var getElement = {};
+                getElement['id'] = polyindex[i];
+                getElement['paths'] = outJSON[polyindex[i]];
+                resultJson.push(getElement);
             }
+        }
+        var finalJson = {};
+        finalJson['type'] = "addPaths";
+        finalJson['Changes'] = resultJson;
+        // alert(JSON.stringify(finalJson));
+        var urlPoly = "<?=$this->config->item('server_url');?>";
+        var method = "POST";
+        var mapData = JSON.stringify(finalJson);
+        var shouldBeAsync = true;
+        var requestMap = new XMLHttpRequest();
+        var data;
+        requestMap.onload = function () {
+            var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
+            var data = requestMap.response;
+            // alert(data);
+        }
+        requestMap.open(method, urlPoly, shouldBeAsync);
+        requestMap.send(mapData);
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=geometry&callback=initMap"
+        async defer></script>
 
-            function sendData(ev) {
-                var resultJson = [];
-                for (var i = 0; i < polyindex.length; i++) {
-                    if (outJSON[polyindex[i]].length > 0) {
-                        var getElement = {};
-                        getElement['id'] = polyindex[i];
-                        getElement['paths'] = outJSON[polyindex[i]];
-                        resultJson.push(getElement);
-                    }
-                }
-                var finalJson = {};
-                finalJson['type'] = "addPaths";
-                finalJson['Changes'] = resultJson;
-                // alert(JSON.stringify(finalJson));
-
-                var urlPoly = "<?=$this->config->item('server_url');?>";
-                var method = "POST";
-                var mapData = JSON.stringify(finalJson);
-                var shouldBeAsync = true;
-                var requestMap = new XMLHttpRequest();
-                var data;
-                requestMap.onload = function () {
-                    var status = requestMap.status; // HTTP response status, e.g., 200 for "200 OK"
-                    var data = requestMap.response;
-                    // alert(data);
-                }
-                requestMap.open(method, urlPoly, shouldBeAsync);
-                requestMap.send(mapData);
-            }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=geometry&callback=initMap"
-        async defer></script>        
-
-    </body>
+</body>
 </html>

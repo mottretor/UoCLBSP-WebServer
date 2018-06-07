@@ -31,10 +31,7 @@ class Nearby_search extends CI_Controller
 
     function get_nearby_places()
     {
-//        echo 'lduisd';
         if (isset($_POST['source_name'])) {
-//            echo 'poo';
-
             $this->load->model('Nearby_search_model');
             $data = array(
                 'name' => $this->input->post('source_name'),
@@ -42,10 +39,10 @@ class Nearby_search extends CI_Controller
                 'lng1' => $this->input->post('source_lng'),
                 'type' => $this->input->post('room_type'),
             );
-            $room_array = $this->nearby_search_model->search_nearby_places($data);
-//            $this->display_nearby_places($room_array);
-            //alert('kf');
-            $this->load->view('nearby_search_display', $room_array);
+            $room_array['result'] = $this->nearby_search_model->search_nearby_places($data);
+//            var_dump($room_array);
+            $view_data = $this->load->view('nearby_search_display', $room_array, TRUE);
+            $this->output->set_output($view_data);
         }
     }
 

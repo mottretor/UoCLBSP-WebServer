@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['base_url'] = getenv('URL_BASE');
 $config{'server_url'}=getenv('URL_MAP_SERVER');
+
 $config['oauth_key']=getenv('OAUTH_KEY');
 
 /*
@@ -57,7 +58,7 @@ $config['index_page'] = '';
 */
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['api_key']=getenv('KEY_GOOGLE_MAP_API');
-
+$config['oauth_key']=getenv('OAUTH_KEY');
 
 /*
 |--------------------------------------------------------------------------
