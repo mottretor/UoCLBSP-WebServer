@@ -32,12 +32,6 @@ class Nearby_search_model extends CI_Model
         $lat1 = $data['lat1'];
         $lng1 = $data['lng1'];
         $type = $data['type'];
-//        echo $type;
-//        echo $lat1;
-//        echo $lng1;
-
-//        $lat1 = 6.90482657022505;
-//        $lng1 = 79.85762448542789;
 
         $query = $this->db->query("SELECT building.latitudes, building.longitudes, room.name, room.description,
     ( 3959 * acos( cos( radians($lat1) ) * cos( radians(building.latitudes) ) * cos( radians($lng1) 

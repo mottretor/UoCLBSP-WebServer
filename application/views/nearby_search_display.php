@@ -13,6 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
 
+    <style>
+        body {
+            color: black;
+        }
+    </style>
 </head>
 <body>
 <?php
@@ -31,7 +36,11 @@ $room_json = json_encode($rooms);
 <script src="<?php echo base_url().'assets/js/jquery-ui.js'?>" type="text/javascript"></script>
 <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>-->
 
-<div id="main"><div id="map"></div></div>
+<div id="main">
+    <div id="map">
+        <div><select id="locationSelect" style="width: 10%; visibility: hidden"></select></div>
+    </div>
+</div>
 
 <script type="text/javascript">
 
@@ -52,6 +61,8 @@ $room_json = json_encode($rooms);
     var startingPoint;
     var outJSON = {};
     var polyindex = [];
+    var infoWindow;
+    var markers = [];
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
@@ -134,20 +145,42 @@ $room_json = json_encode($rooms);
         requestMap.open(method, urlPoly, shouldBeAsync);
         requestMap.send(mapData);
 
+        setMarkers(map);
+    } //init ends
+
+    function setMarkers() {
         var rooms = <?php echo $room_json; ?>;
         rooms = JSON.parse(JSON.stringify(rooms));
         for(var a = 0; a < rooms.length; a++)
         {
             var lat = rooms[a]['lat'];
             var lng = rooms[a]['lng'];
+            var name = rooms[a]['name'];
+            var description = rooms[a]['description'];
 
             var room_marker = new google.maps.Marker({
                 position: {'lat': parseFloat(lat), 'lng': parseFloat(lng)},
                 map: map
             });
-        }
 
-    } //init ends
+            var content = '<b>' + name + '</b>' + '</br>' + description;
+
+            var info_window = new google.maps.InfoWindow();
+
+            google.maps.event.addListener(room_marker, 'mouseover', (function (room_marker, content, info_window) {
+                return function () {
+                    info_window.setContent(content);
+                    info_window.open(map, room_marker);
+                };
+            })(room_marker, content, info_window));
+
+            google.maps.event.addListener(room_marker, 'mouseout', (function (room_marker, info_window) {
+                return function () {
+                    info_window.close();
+                };
+            })(room_marker, info_window));
+        }
+    }
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<?=$this->config->item('api_key');?>&libraries=geometry&callback=initMap"

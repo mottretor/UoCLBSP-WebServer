@@ -46,9 +46,4 @@ class Nearby_search extends CI_Controller
         }
     }
 
-//    function display_nearby_places($room_array)
-//    {
-//        $this->load->view('nearby_search_display');
-//    }
-
 }

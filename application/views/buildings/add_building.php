@@ -6,16 +6,13 @@
 <body>
 <?php
 ini_set('display_errors', 1);
-//        echo "kshffsdsdgdfdfhdfhfddfhdh";
+
 //convert the stdClass Object into a php array
 foreach($result as $key => $data){
     $building_array[$key] = (array)$data;
 }
 $building_json = json_encode($building_array);
 //        var_dump($building_json);
-//        $json_building = json_encode((array)$building_array);
-//        print_r($building_array[0]['latitudes']);
-//        $building_array = json_decode(json_encode($result), true);
 ?>
 
 <div id="form-div">
@@ -119,21 +116,7 @@ $building_json = json_encode($building_array);
                 map: map
             });
         }
-        //var building_array = "<?php //json_encode($result)?>//";
-        //JSON.parse(building_array);
-        //alert(building_array);
-        //for(var a = 0; a < building_array.length; a++)
-        //{
-        //    // var lat = building_array[a].latitudes;
-        //    // var lng = building_array[a].longitudes;
-        //    alert('kdasdh');
-        //
-        //    var building_marker = new google.maps.Marker({
-        //        position: <?php //$building_array[a] ?>//,
-        //        map: map
-        //    });
-        //}
-        // alert(building_array);
+
         map.addListener('dblclick', sendData);
         // mapdata = '{"graphs":[{"vertexes":[{"lng":79.859614,"id":10,"lat":6.903579},{"lng":79.859726,"id":11,"lat":6.90225},{"lng":79.85948,"id":12,"lat":6.902409}],"edges":[{"destination":10,"id":9,"source":12},{"destination":12,"id":11,"source":11}],"id":16}],"polygons":[{"vertexes":[{"lng":79.858825,"lat":6.90357},{"lng":79.86155,"lat":6.903602},{"lng":79.860821,"lat":6.901334},{"lng":79.859147,"lat":6.902622}],"id":16}]}';
         var urlPoly = "<?=$this->config->item('server_url');?>";
@@ -192,13 +175,6 @@ $building_json = json_encode($building_array);
                 sourcelng = graphArray[z].vertexes[verti]["lng"];
                 sourId = graphArray[z].vertexes[verti]["id"];
                 var sourcepoint = {'lat': sourcelat, 'lng': sourcelng};
-                // sourcemark = new google.maps.Marker({
-                //     position: sourcepoint,
-                //     map: map,
-                //     id: graphArray[z].id
-                // });
-                // alert(sourcemark.id);
-                // sourcemark.addListener('click', setAsBuilding);
                 graphVertexes[sourId] = sourcepoint;
             }
             for (var k = 0; k < graphArray[z].edges.length; k++) {

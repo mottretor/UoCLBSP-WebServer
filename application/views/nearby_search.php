@@ -216,8 +216,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             // alert(sourceLng);
             var room_type = document.getElementById('location_type').value;
-            // alert('jmgdgd');
-
 
             $.post("<?php echo base_url(); ?>Nearby_search/get_nearby_places",
                 {
