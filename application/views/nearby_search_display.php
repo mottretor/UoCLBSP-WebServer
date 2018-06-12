@@ -13,11 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?php echo base_url().'assets/css/jquery-ui.css'?>">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/admin_styles.css" >
 
-    <style>
-        body {
-            color: black;
-        }
-    </style>
 </head>
 <body>
 <?php
@@ -61,8 +56,6 @@ $room_json = json_encode($rooms);
     var startingPoint;
     var outJSON = {};
     var polyindex = [];
-    var infoWindow;
-    var markers = [];
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {

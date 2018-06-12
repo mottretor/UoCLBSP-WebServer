@@ -9,7 +9,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
-    <meta name="google-signin-client_id" content="<?php $this->config->item('oauth_key');?>.apps.googleusercontent.com">
+<!--    <meta name="google-signin-client_id" content="--><?php //$this->config->item('oauth_key');?><!--.apps.googleusercontent.com">-->
 
     <script>
         function onSignIn(googleUser) {
@@ -35,16 +35,18 @@
     }
     ?>
 </head>
-<body>
+<body style="color: black;">
 
 <!--<a id="nav-toggle"  class="position"><span></span></a>-->
 
 
 <header>
            <div class="container">
-          <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
-         </div>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
+<!--               <input type="text" name="name" id="name" class="form-control" placeholder="Search map.." style="width:300px; margin-left: 10%; margin-top: 0px; margin-bottom: 0px;">-->
+<!--               <div class="g-signin2" data-onsuccess="onSignIn"></div>-->
+           </div>
+
 </header>
 
 

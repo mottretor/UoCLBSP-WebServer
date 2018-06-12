@@ -26,7 +26,6 @@ class Nearby_search extends CI_Controller
                 echo json_encode($arr_result);
             }
         }
-//        echo $arr_result;
     }
 
     function get_nearby_places()

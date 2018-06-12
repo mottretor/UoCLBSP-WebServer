@@ -101,20 +101,38 @@ $building_json = json_encode($building_array);
             gestureHandling: 'greedy',
             zoom: 16
         });
-        // alert('kjadfdane');
+
         var buildings = <?php echo $building_json; ?>;
         buildings = JSON.parse(JSON.stringify(buildings));
         // alert(buildings);
         for(var a = 0; a < buildings.length; a++)
         {
             var lat = buildings[a]['latitudes'];
-            // alert(lat);
-            // alert('ksahdusfgu');
             var lng = buildings[a]['longitudes'];
+            var name = buildings[a]['name'];
+            var description = buildings[a]['description'];
+
             var building_marker = new google.maps.Marker({
                 position: {'lat': parseFloat(lat), 'lng': parseFloat(lng)},
                 map: map
             });
+
+            var content = '<b>' + name + '</b>' + '</br>' + description;
+
+            var info_window = new google.maps.InfoWindow();
+
+            google.maps.event.addListener(building_marker, 'mouseover', (function (building_marker, content, info_window) {
+                return function () {
+                    info_window.setContent(content);
+                    info_window.open(map, building_marker);
+                };
+            })(building_marker, content, info_window));
+
+            google.maps.event.addListener(building_marker, 'mouseout', (function (building_marker, info_window) {
+                return function () {
+                    info_window.close();
+                };
+            })(building_marker, info_window));
         }
 
         map.addListener('dblclick', sendData);
