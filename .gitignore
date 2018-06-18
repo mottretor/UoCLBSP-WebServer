@@ -32,3 +32,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 ## env file for database credentials
 /.env.development
+application/views/test1.php
+application/controllers/Test.php

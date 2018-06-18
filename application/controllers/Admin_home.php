@@ -5,7 +5,7 @@ class Admin_home extends CI_Controller
     public function index()
     {
         $data["call"] = True;
-        $this->load->view('include/header',$data);
+        $this->load->view('include/header_loggedin',$data);
         $this->load->view('include/side_navbar');
         //$this->load->view('admin_home');
 
