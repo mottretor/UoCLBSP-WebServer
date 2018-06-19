@@ -26,7 +26,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $config['base_url'] = getenv('URL_BASE');
 $config{'server_url'}=getenv('URL_MAP_SERVER');
-
 $config['oauth_key']=getenv('OAUTH_KEY');
 
 /*

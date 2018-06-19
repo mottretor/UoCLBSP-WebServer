@@ -10,7 +10,7 @@ class Welcome extends CI_Controller {
     {
         $data["call"] = False;
         $this->load->view('include/header',$data);
-        $this->load->view('admin_search');
+//        $this->load->view('admin_search');
     }
 //
 //    public function index()

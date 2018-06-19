@@ -11,6 +11,13 @@ class Admin_home extends CI_Controller
 
     }
 
+    public function home()
+    {
+        $this->load->view('search_place');
+//        $this->load->view('admin_map');
+
+    }
+
     public function add_polygon(){
         $this->load->view('add_geofence');
     }
@@ -31,7 +38,7 @@ class Admin_home extends CI_Controller
     
     public function search()
     {
-        $this->load->view('nearby_search');
+        $this->load->view('admin_search');
     }
 
     public function test(){

@@ -24,43 +24,7 @@ $building_json = json_encode($building_array);
         <table>
             <tr>
                 <td>
-                    Name :
-                </td>
-                <td>
-                    <input type="text" name="name">
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Description :
-                </td>
-                <td>
-                    <textarea rows="1.5" cols="30" name="description"></textarea>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Latitudes :
-                </td>
-                <td>
-                    <input type="text" name="latitudes" id="infoLat" value="" readonly="true">
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Longitudes :
-                </td>
-                <td>
-                    <input type="text" name="longitudes" id="infoLng" value="" readonly="true">
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <input type="hidden" name="graphId" id="graph_id" value="">
+                    <input type="text" class="form-control" id="location_type" placeholder="Place type.." style="width:200px;">
                 </td>
             </tr>
 
@@ -107,8 +71,6 @@ $building_json = json_encode($building_array);
         // alert(buildings);
         for(var a = 0; a < buildings.length; a++)
         {
-            //console.log(buildings[a]);
-
             var lat = buildings[a]['latitudes'];
             var lng = buildings[a]['longitudes'];
             var name = buildings[a]['name'];
@@ -135,14 +97,6 @@ $building_json = json_encode($building_array);
                     info_window.close();
                 };
             })(building_marker, info_window));
-
-            building_marker.addListener('click', function() {
-                //infowindow.open(map, marker);
-                //window.location.href = "<?php //echo site_url('Manage_building/update_building');?>//?name="+name;
-                var new_name = name.replace(" ","_");
-                console.log(new_name);
-                window.location.href ="<?php echo site_url('Manage_building/update_building/');?>"+new_name;
-            });
         }
 
         map.addListener('dblclick', sendData);
