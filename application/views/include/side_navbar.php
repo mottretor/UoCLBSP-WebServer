@@ -27,7 +27,7 @@
         <p ><b>Manage Roles</b></p>
         <ul>
             <li><a  data-target="admins"><i class="fas fa-id-badge"></i><div class="list-item">Admins</div></a></li>
-            <li><a  data-target="users"><i class="fas fa-user-circle"></i><div class="list-item">Users</div></a></li>
+<!--            <li><a  data-target="users"><i class="fas fa-user-circle"></i><div class="list-item">Users</div></a></li>-->
         </ul>
     </nav>
 

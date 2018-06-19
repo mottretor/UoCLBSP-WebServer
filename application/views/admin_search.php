@@ -19,11 +19,6 @@
 </head>
 <body>
 
-<!-- <input id="origin-input" class="controls" type="text"
-    placeholder="Origin location...">
-<input id="destination-input" class="controls" type="text"
-    placeholder="Destination location..."> -->
-
 <input list="places"  id="origin-input" placeholder="Origin.." />
 <datalist id="places"></datalist>
 

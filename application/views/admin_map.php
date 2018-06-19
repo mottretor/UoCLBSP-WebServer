@@ -11,25 +11,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <div id="map"></div>
 <script>
-
-    var flag = 0;
     var line;
     var source;
     var map;
-    var mapdata;
     var maparray;
     var polyArray;
     var graphArray;
-    var path, graph, point, newpoint;
     var temp;
     var flag;
-    var destination;
-    var polygons = {};
-    var polyid = 0;
-    var startingPoint;
-    var outJSON = {};
-    var polyindex = [];
-
 
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {

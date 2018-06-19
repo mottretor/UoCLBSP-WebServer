@@ -39,7 +39,7 @@
 
                     maparray = JSON.parse(data);
 
-                    alert(data);
+                    // alert(data);
                     polyArray = maparray.polygons;
                     graphArray = maparray.graphs;
                     // loadmap();

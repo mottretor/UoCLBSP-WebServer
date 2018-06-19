@@ -33,7 +33,7 @@
     <?php if($call == True) {
         echo '<script>
                 $(function(){
-                    $("#cont").load("Admin_home/search");
+                    $("#cont").load("Admin_home/home");
                 });
 
     </script>';
@@ -51,7 +51,7 @@
 <header>
            <div class="container" style="width: 100%;">
 
-                   <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
+                   <a data-target="Admin_home/home"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
                    <img src="<?php echo $this->session->userdata('img');?>" height="45px" style="float: right; padding-right: 110px;">
                    <a id="signoutbutton" href="#" onclick="signOut();" style="float: right; padding-right: 50px; padding-top: 5px">Sign Out</a>
            </div>
