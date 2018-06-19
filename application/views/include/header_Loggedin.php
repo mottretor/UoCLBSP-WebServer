@@ -49,15 +49,12 @@
 
 
 <header>
-           <div class="container">
-                <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
-<!--               <input type="text" name="name" id="name" class="form-control" placeholder="Search map.." style="width:300px; margin-left: 10%; margin-top: 0px; margin-bottom: 0px;">-->
-<!--               <div id ="signinbutton" class="g-signin2" data-onsuccess="onSignIn" style="float: right; padding-right: 70px; padding-top: 5px"></div>-->
-              <!-- <div id ="signoutbutton" style="float: right; padding-right: 70px; padding-top: 5px; display: none"> <button type="button" onclick="signOut()">Sign Out</button>  </div> -->
+           <div class="container" style="width: 100%;">
 
-               <img src="<?php echo $this->session->userdata('img');?>" height="45px" style="float: right">
-
-               <div><a id="signoutbutton" href="#" onclick="signOut();" style="float: right; padding-right: 70px; padding-top: 5px">Sign Out</a></div>
+                   <a data-target="Admin_home/search"><img src="<?php echo base_url();?>/assets/drawable/web_icon.png" height="45px"></a>
+                   <img src="<?php echo $this->session->userdata('img');?>" height="45px" style="float: right; padding-right: 110px;">
+                   <a id="signoutbutton" href="#" onclick="signOut();" style="float: right; padding-right: 50px; padding-top: 5px">Sign Out</a>
+           </div>
 
 </header>
 
