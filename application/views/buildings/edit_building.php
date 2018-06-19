@@ -69,7 +69,7 @@
                         Name :
                     </td>
                     <td>
-                        <input type="text" name="name" id="name" class="form-control" placeholder="Place type.." style="width:200px;">
+                        <input type="text" name="name" id="name" class="form-control" value="<?php echo $name ?>" style="width:200px;">
 <!--                        <input type="text"  value="--><?php //echo $name ?><!--">-->
                     </td>
                 </tr>

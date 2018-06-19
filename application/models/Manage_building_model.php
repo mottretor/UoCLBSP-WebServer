@@ -41,21 +41,35 @@ class Manage_building_model extends CI_Model
             $this->load->view('buildings/selected_building', $data2);
         }
     }
-    public function edit($datasearch2)
+    public function edit($name)
     {
-//        echo 'ok';
-//        var_dump($datasearch2);
-        if (isset($_POST['name'])) {
-//            echo 'poo';
-            $id = $_POST['id'];
-            $query = $this->db->select('*')->from('building')->where('id', $id)->get();
-//            $query = $this->db->select('*')->from('building')->like('name', $name, 'before')->get();
-//            $query = $this->db->query("SELECT * FROM building where name = '$name';");
-//            var_dump($query);
-            $rows = $query->row_array();
-//            var_dump($rows);
-//            $rows['name'];
-            $data2 = array(
+////        echo 'ok';
+////        var_dump($datasearch2);
+//        if (isset($_POST['name'])) {
+////            echo 'poo';
+//            $id = $_POST['id'];
+//            $query = $this->db->select('*')->from('building')->where('id', $id)->get();
+////            $query = $this->db->select('*')->from('building')->like('name', $name, 'before')->get();
+////            $query = $this->db->query("SELECT * FROM building where name = '$name';");
+////            var_dump($query);
+//            $rows = $query->row_array();
+////            var_dump($rows);
+////            $rows['name'];
+//            $data2 = array(
+//                'id' => $rows['id'],
+//                'name' => $rows['name'],
+//                'description' => $rows['description'],
+//                'latitudes' => $rows['latitudes'],
+//                'longitudes' => $rows['longitudes'],
+//                'graph_id' => $rows['graph_id']
+//            );
+////            var_dump($data2);
+//            $this->load->view('buildings/edit_building', $data2);
+//        }
+
+        $query = $this->db->select('*')->from('building')->where('name', $name)->get();
+        $rows = $query->row_array();
+        $data2 = array(
                 'id' => $rows['id'],
                 'name' => $rows['name'],
                 'description' => $rows['description'],
@@ -63,9 +77,12 @@ class Manage_building_model extends CI_Model
                 'longitudes' => $rows['longitudes'],
                 'graph_id' => $rows['graph_id']
             );
-//            var_dump($data2);
-            $this->load->view('buildings/edit_building', $data2);
-        }
+
+        //$this->load->view('buildings/edit_building', $data2);
+        return $data2;
+
+
+
     }
     public function change($datasearch3)
     {

@@ -107,6 +107,8 @@ $building_json = json_encode($building_array);
         // alert(buildings);
         for(var a = 0; a < buildings.length; a++)
         {
+            //console.log(buildings[a]);
+
             var lat = buildings[a]['latitudes'];
             var lng = buildings[a]['longitudes'];
             var name = buildings[a]['name'];
@@ -133,6 +135,14 @@ $building_json = json_encode($building_array);
                     info_window.close();
                 };
             })(building_marker, info_window));
+
+            building_marker.addListener('click', function() {
+                //infowindow.open(map, marker);
+                //window.location.href = "<?php //echo site_url('Manage_building/update_building');?>//?name="+name;
+                var new_name = name.replace(" ","_");
+                console.log(new_name);
+                window.location.href ="<?php echo site_url('Manage_building/update_building/');?>"+new_name;
+            });
         }
 
         map.addListener('dblclick', sendData);
