@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Chathurya
+ * Auth: Chathurya
  * Date: 1/7/2018
  * Time: 6:17 PM
  */
@@ -61,7 +61,7 @@ class Manage_rooms_model extends CI_Model
             );
 //            var_dump($data2);
 
-            $this->load->view('rooms/selected', $data2);
+            $this->load->view('rooms/selected_room', $data2);
         }
     }
 
@@ -90,7 +90,7 @@ class Manage_rooms_model extends CI_Model
             );
 //            var_dump($data2);
 
-            $this->load->view('rooms/edit', $data2);
+            $this->load->view('rooms/edit_room', $data2);
         }
     }
 

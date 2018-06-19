@@ -50,6 +50,17 @@
 
 <div style="width: 25%; float: left; background-color: black; height: 100%">
     <div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $( "#name" ).autocomplete({
+                source: "<?php echo site_url('Nearby_search/get_autocomplete/?');?>"
+            });
+        });
+    </script>
+
+    <div>
         <form method="post" action="<?php echo base_url() ?>index.php/Manage_building/change_building">
 
             <table>
@@ -58,7 +69,8 @@
                         Name :
                     </td>
                     <td>
-                        <input type="text" name="name" id="name" value="<?php echo $name ?>">
+                        <input type="text" name="name" id="name" class="form-control" placeholder="Place type.." style="width:200px;">
+<!--                        <input type="text"  value="--><?php //echo $name ?><!--">-->
                     </td>
                 </tr>
 

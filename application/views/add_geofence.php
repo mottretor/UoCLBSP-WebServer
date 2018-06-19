@@ -16,6 +16,7 @@
             var jsonObj = {};
             var polyArray = [];
             var outArray = [];
+            var verArray = [];
 
 
             function initMap() {
@@ -41,7 +42,7 @@
                     alert(data);
                     polyArray = maparray.polygons;
                     graphArray = maparray.graphs;
-                    loadmap();
+                    // loadmap();
                     line = [];
                     temp = [];
                     flag = 0;
@@ -95,7 +96,7 @@
                     jsonObject = {};
                     jsonObject['latitudes'] = event.latLng.lat();
                     jsonObject['longitudes'] = event.latLng.lng();
-                    polyArray.push(jsonObject);
+                    verArray.push(jsonObject);
                     vertexPoints.push({'lat': event.latLng.lat(), 'lng': event.latLng.lng()});
 
                     if (mIsSet == 0) {
@@ -117,7 +118,7 @@
             
             function drawPloygon(event) {
                 if (state == 0) {
-                    jsonObj['polygon'] = polyArray;
+                    jsonObj['polygon'] = verArray;
                     polygon = new google.maps.Polygon({
                         paths: vertexPoints,
                         strokeColor: '#aeb20c',

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Chathurya
+ * Auth: Chathurya
  * Date: 1/6/2018
  * Time: 9:11 AM
  */
@@ -10,7 +10,7 @@ class Manage_people extends CI_Controller
 {
     public function people()
     {
-        $this->load->view('people/add');
+        $this->load->view('people/add_people');
     }
 
     public function add_people()

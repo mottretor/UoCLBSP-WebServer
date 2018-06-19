@@ -1,15 +1,12 @@
 <html>
 <style type="text/css">
     .heading {
-        color : #fff;
+        color : #000;
         font-family: sans-serif;
-
         text-align: center;
-
     }
 </style>
 <head>
-    <title>Get directions</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -34,9 +31,6 @@
 <datalist id="placesD"></datalist>
 
 <button type="button" onclick="getDirections()" id="search-button" class="btn btn-default">Get Directions</button>
-
-
-
 
 <div id="map"></div>
 
@@ -66,13 +60,13 @@
     //ORIGIN****************************************************
     //search part
     $('#origin-input').keyup(function(){
-        var searchValue=$(this).val();
-        //alert(searchValue);
+        var searchValue=$(this).val(); //sends the letters/phrases that are typed in the text field to the server
+        // alert(searchValue);
         //Getting two places from the search bars Origin and Destination
         //search results are retrieved from the java server
         var getPlaces = {"type":"searchRequest","input":searchValue,"role":"registered"};
         var getPlacesJson = JSON.stringify(getPlaces);
-        var urlPlaces = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPlaces = "<?=$this->config->item('server_url');?>";
         var method = "POST";
         var placesData = getPlacesJson;
         var shouldBeAsync = true;
@@ -84,12 +78,13 @@
         //on success
         requestPlaces.onload = function () {
             var status = requestPlaces.status;
-            var data = requestPlaces.response;
-            //alert(data);
+            var data = requestPlaces.response; // gets the search results from the server for autocomplete suggesting
+            // alert(data);
             //var datax = '{"Results":[{"lng":80.01436559999999,"name":"Gampaha","lat":7.0873101},{"lng":80.564677,"name":"Gampola","lat":7.126777},{"lng":79.9937034,"name":"Gampaha Railway Station","lat":7.093542999999999},{"lng":79.99173739999999,"name":"Gampaha Bus Station","lat":7.092380399999999},{"lng":79.8976314,"name":"Gamsabha Junction Bus Stop","lat":6.864619100000001}]}';
             //alert(status);
             var results = JSON.parse(data);
             window.resultsO = results;
+            // alert(results);
             var places=[];
             window.placeLats=[];
             var nameX;
@@ -105,6 +100,7 @@
                 option.value = item;
                 list.appendChild(option);
             });
+            // alert(list);
         }
         requestPlaces.open(method, urlPlaces, shouldBeAsync);
         requestPlaces.send(placesData);
@@ -116,7 +112,7 @@
         //alert(searchValue);
         var getPlaces = {"type":"searchRequest","input":searchValue,"role":"no"};
         var getPlacesJson = JSON.stringify(getPlaces);
-        var urlPlaces = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPlaces = "<?=$this->config->item('server_url');?>";
         var method = "POST";
         var placesData = getPlacesJson;
         var shouldBeAsync = true;
@@ -134,6 +130,7 @@
             //alert(status);
             var results = JSON.parse(data);
             window.resultsD = results;
+            // alert(results);
             var places=[];
             window.placeLatsD=[];
             var nameX;
@@ -181,7 +178,7 @@
         //   zoom: 15,
         // });
         //requesting polygons from the server
-        var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPoly = "<?=$this->config->item('server_url');?>";
         var method = "POST";
         var polyData = JSON.stringify({"type":"polyRequest"});
         var shouldBeAsync = true;
@@ -269,7 +266,7 @@
             var jsonInside = JSON.stringify(srcdst);
             //alert(json);
             //sending the two points' coordinates and inside or not details
-            var url = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+            var url = "<?=$this->config->item('server_url');?>";
             var method = "POST";
             var postData = jsonInside;
             // want shouldBeAsync = true.

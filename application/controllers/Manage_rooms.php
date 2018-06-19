@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Chathurya
+ * Auth: Chathurya
  * Date: 1/7/2018
  * Time: 6:20 PM
  */
@@ -10,7 +10,7 @@ class Manage_rooms extends CI_Controller
 {
     public function rooms()
     {
-        $this->load->view('rooms/add');
+        $this->load->view('rooms/add_room');
     }
 
     public function add_room()

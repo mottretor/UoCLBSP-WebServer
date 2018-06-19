@@ -1,9 +1,9 @@
 textarea,
-input[type=text], select {
+input[type=text], input[type=password], select {
     font-family: "roboto";
     width: 100%;
     padding: 12px 12px;
-    margin: 18px 0px 12px 10px;    
+    margin: 18px 0px 12px 10px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -41,13 +41,17 @@ input[type=reset]{
     padding: 40px 40px 40px 40px;
 }
 
-td{
+tr, td{
     color: #000000;
+    height: 1px;
+    padding: 0px;
+
 }
 table{
     width: 100%;
     padding: 5px 0px;
     padding-right: 5px;
+    border-spacing: 0em;
 }
 
 #title-div p{
