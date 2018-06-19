@@ -7,7 +7,6 @@
     }
 </style>
 <head>
-    <title>Get directions</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.bundle.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -67,7 +66,7 @@
         //search results are retrieved from the java server
         var getPlaces = {"type":"searchRequest","input":searchValue,"role":"registered"};
         var getPlacesJson = JSON.stringify(getPlaces);
-        var urlPlaces = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPlaces = "<?=$this->config->item('server_url');?>";
         var method = "POST";
         var placesData = getPlacesJson;
         var shouldBeAsync = true;
@@ -113,7 +112,7 @@
         //alert(searchValue);
         var getPlaces = {"type":"searchRequest","input":searchValue,"role":"no"};
         var getPlacesJson = JSON.stringify(getPlaces);
-        var urlPlaces = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPlaces = "<?=$this->config->item('server_url');?>";
         var method = "POST";
         var placesData = getPlacesJson;
         var shouldBeAsync = true;
@@ -179,7 +178,7 @@
         //   zoom: 15,
         // });
         //requesting polygons from the server
-        var urlPoly = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+        var urlPoly = "<?=$this->config->item('server_url');?>";
         var method = "POST";
         var polyData = JSON.stringify({"type":"polyRequest"});
         var shouldBeAsync = true;
@@ -267,7 +266,7 @@
             var jsonInside = JSON.stringify(srcdst);
             //alert(json);
             //sending the two points' coordinates and inside or not details
-            var url = "http://ec2-52-72-156-17.compute-1.amazonaws.com:1978";
+            var url = "<?=$this->config->item('server_url');?>";
             var method = "POST";
             var postData = jsonInside;
             // want shouldBeAsync = true.
